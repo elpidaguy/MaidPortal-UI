@@ -1,0 +1,179 @@
+/* You can add global styles to this file, and also import other style files */
+
+// Third party libraries
+@import 'vendor/_bootstrap.scss';
+@import '~angular-tree-component/dist/angular-tree-component.css';
+// bs4 alert styled design (uses bs4 variables)
+@import '~ngx-toastr/toastr-bs4-alert';
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+// Components in this app
+@import 'components/_modal.scss';
+
+html {
+  font-size: 0.9rem;
+}
+
+.large-paddding-top {
+  padding-top: 160px;
+}
+
+// extra-small buttons were removed from bootstrap 4
+.btn-xs {
+  padding: 0.25rem 0.4rem;
+  font-size: 0.875rem;
+  line-height: 0.5;
+  border-radius: 0.2rem;
+}
+
+// Styling for action icons
+.icon-button--hover-reactive {
+  // font-size: 18px;
+  cursor: pointer;
+  :hover {
+    opacity: 0.5;
+  }
+}
+.icon-button--hover-reactive.disabled {
+  opacity: 0.5;
+  :hover {
+    opacity: 1;
+  }
+  cursor: default;
+}
+
+// invalid inputs
+.form-control.ng-dirty.ng-invalid {
+  border: solid 1px red;
+}
+
+.error-message {
+  font-size: 15px;
+  color: $form-feedback-invalid-color;
+}
+
+//ascensia
+
+body {
+  background-color: #fff!important;  
+}
+
+.large-paddding-top {
+  padding-top: 100px;
+}
+
+// extra-small buttons were removed from bootstrap 4
+.btn-xs {
+  padding: 0.25rem 0.4rem;
+  font-size: 0.875rem;
+  line-height: 0.5;
+  border-radius: 0.2rem;
+}
+
+
+.ng-progress-bar.-active{
+  position: fixed !important;
+  left: 0px !important;
+  top: 0px !important;
+  height: 100% !important;
+  width: 100% !important;
+  background-color: #ffffff !important;
+  opacity: 0.7 !important;
+  z-index: 9999 !important;
+}
+.ng-spinner{
+   z-index: 99999 !important;
+   top: 50% !important;
+   left: 50%;
+}
+.ng-spinner-icon{
+   width: 40px !important;
+   height: 40px !important;
+   border-top: 5px solid #384b61 !important;
+   border-left: 5px solid #384b61 !important;
+   -webkit-animation:.8s linear infinite spinner-animation;
+   animation: .7s linear infinite spinner-animation
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #008938;
+  border-color: #008938;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #006230 !important;
+  border-color: #006230 !important;
+}
+
+.page-item.active .page-link { 
+  color: #fff;
+  background-color: #006230;
+  border-color: #006230;
+}
+.page-link:hover{
+  background-color: #ffdde5;
+  color: #008938;
+}
+.btn-link,.page-link{
+  color: #008938;
+}
+.btn-primary:disabled{
+  background-color: #006230;
+  border-color: #008938;
+}
+.form-control:focus {
+  // color: #495057;
+  // background-color: #fff;
+  border-color: #006230;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(204, 0, 51, 0.25);
+}
+
+.logoImg{
+  display: block;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: url(/assets/logo/logo.jpg) no-repeat;       
+  background-size: 100% 100%;
+  width: 400px;
+
+  
+  height: 70px;
+  margin: 0 auto;
+  margin-top: -40px;
+  margin-bottom:-10px;
+}
+
+.page-heading {   
+  // font-size: 2.0em;
+  font-weight: 300;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: white !important;
+ // color: white !important;
+}
+
+a {
+ color: #008938;
+}
+
+a:hover {
+  color: #008938;
+}
+
+.navbar
+{
+  height: 80px;
+}
+
+.dropdown-item.active {
+  background-color: #008938 !important;
+}
+.text-color{
+  color: #008938;
+}
+.dropdown-item:hover{
+  background-color: #008938;
+  color:white !important;
+}
