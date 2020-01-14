@@ -9,7 +9,8 @@
 
 // Components in this app
 @import 'components/_modal.scss';
-
+$base-color:#00457c ;
+$contrast-color:#e8d4a2;
 html {
   font-size: 0.9rem;
 }
@@ -97,35 +98,35 @@ body {
 
 .btn-primary {
   color: #fff;
-  background-color: #008938;
-  border-color: #008938;
+  background-color:$base-color;
+  border-color: $base-color;
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: #006230 !important;
-  border-color: #006230 !important;
+  background-color: $base-color !important;
+  border-color: $base-color !important;
 }
 
 .page-item.active .page-link { 
   color: #fff;
-  background-color: #006230;
-  border-color: #006230;
+  background-color: $base-color;
+  border-color: $base-color;
 }
 .page-link:hover{
   background-color: #ffdde5;
-  color: #008938;
+  color: $base-color;
 }
 .btn-link,.page-link{
-  color: #008938;
+  color: $base-color;
 }
 .btn-primary:disabled{
-  background-color: #006230;
-  border-color: #008938;
+  background-color:#00457c  !important;
+  border-color: #00457c ;
 }
 .form-control:focus {
   // color: #495057;
   // background-color: #fff;
-  border-color: #006230;
+  border-color: $base-color;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(204, 0, 51, 0.25);
 }
@@ -155,11 +156,11 @@ body {
 }
 
 a {
- color: #008938;
+ color: $base-color;
 }
 
 a:hover {
-  color: #008938;
+  color: $base-color;
 }
 
 .navbar
@@ -168,7 +169,7 @@ a:hover {
 }
 
 .dropdown-item.active {
-  background-color: #008938 !important;
+  background-color: $base-color !important;
 }
 .text-color{
   color: #008938;
