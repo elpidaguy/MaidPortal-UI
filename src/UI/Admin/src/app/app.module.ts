@@ -7,6 +7,7 @@ import { NgModule ,ErrorHandler} from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component'; 
 import { AuthModule } from './auth/auth.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,10 +16,12 @@ import { AuthModule } from './auth/auth.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    FormsModule,
+    //here sequence is important bcz authmodule has given high priority for routing to avoid 
+    //unesessary page not found routing of approutingmodule
     //app modules
-    AuthModule
-
+    AuthModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
