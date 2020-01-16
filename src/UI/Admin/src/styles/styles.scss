@@ -147,6 +147,10 @@ html {
     color: $Dark-color;
   }
   
+  .btn:hover {
+    cursor: pointer;
+  }
+
   .navbar
   {
     height: 80px;
