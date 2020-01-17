@@ -2,7 +2,6 @@ import { Component, OnInit,Inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppAuthService } from '../../services/app-auth.service';
-import { applicationConfiguration, AppConfig } from 'src/app/config/app.config';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +19,7 @@ export class LoginComponent implements OnInit {
   constructor(private authService:AppAuthService,
     private router: Router,
     private formBuilder: FormBuilder
-    //@Inject(applicationConfiguration) private appConfig: AppConfig
+    // @Inject(applicationConfiguration) private appConfig: AppConfig
     ) {
     
    }
