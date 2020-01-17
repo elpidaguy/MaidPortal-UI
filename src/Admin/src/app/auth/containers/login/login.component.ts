@@ -9,12 +9,11 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
-  isAnon:boolean;
+  isAnon: boolean;
   formBuilder: FormBuilder;
 
-  constructor() {
-    
-   }
+  constructor(
+  ) {}
 
   ngOnInit() {
     this.form=this.formBuilder.group({
@@ -25,6 +24,6 @@ export class LoginComponent implements OnInit {
   }
 
 onSubmit(){
-  
+//  this.router.navigateByUrl('/home');
 }
 }
