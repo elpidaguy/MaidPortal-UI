@@ -12,7 +12,13 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
+<<<<<<< HEAD
+    AppComponent,
+    PageNotFoundComponent
+    
+=======
     AppComponent
+>>>>>>> 3a86b7496ee067d3103d9a5e4c7d42ddd0bc559d
   ],
   imports: [
     BrowserModule,
@@ -21,6 +27,11 @@ import { FormsModule } from '@angular/forms';
     //unesessary page not found routing of approutingmodule
     //app modules
     AuthModule,
+<<<<<<< HEAD
+    LayoutModule,
+    layoutRoutingModule,
+=======
+>>>>>>> 3a86b7496ee067d3103d9a5e4c7d42ddd0bc559d
     AppRoutingModule
   ],
   providers: [],

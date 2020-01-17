@@ -7,11 +7,14 @@ declare var $:any;
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent  implements OnInit{
-  title = 'Admin';
+ loggedInPerson:string=null;
+ loggedInPersonUsername:string=null;
   ngOnInit(){
-    $('button').click(function(){
-      alert("hi");
-    });
+  /* this.loggedInPerson=localStorage.getItem("loggedInPerson");
+   this.loggedInPersonUsername=localStorage.getItem("loggedInPersonUsername");
+   console.log(this.loggedInPerson);
+   console.log(this.loggedInPerson);
+   */
   }
 
 }

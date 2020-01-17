@@ -5,8 +5,15 @@
   <div class="mx-auto mt-4"
        style="max-width:350px;">
     <h3 class="text-center headline-text">Account Login</h3>
+<<<<<<< HEAD
+    <div *ngIf="message!=''" class="alert alert-danger" role="alert">
+      {{message}}
+    </div>
+    <form (ngSubmit)="onSubmit()"
+=======
     <!--
       <form (ngSubmit)="onSubmit()"
+>>>>>>> 3a86b7496ee067d3103d9a5e4c7d42ddd0bc559d
           [formGroup]="form"
           name="LoginForm"
           autocomplete="off"
