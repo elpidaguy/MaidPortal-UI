@@ -1,6 +1,8 @@
 import { Component, OnInit,Inject } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AppAuthService } from '../../services/app-auth.service';
+import { applicationConfiguration, AppConfig } from 'src/app/config/app.config';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +10,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-<<<<<<< HEAD
   form = new FormGroup({
     username: new FormControl(''),
     password: new FormControl(''),
@@ -17,25 +18,20 @@ export class LoginComponent implements OnInit {
   message :string='';
 
   
-=======
-  form: FormGroup;
-  isAnon: boolean;
-  formBuilder: FormBuilder;
->>>>>>> 3a86b7496ee067d3103d9a5e4c7d42ddd0bc559d
 
-  constructor(
-  ) {}
+  constructor(private authService:AppAuthService,
+    private router: Router,
+    private formBuilder: FormBuilder
+    //@Inject(applicationConfiguration) private appConfig: AppConfig
+    ) {
+    
+   }
 
   ngOnInit() {
-    this.form=this.formBuilder.group({
-      username: '',
-      password: '',
-      rememberMe: false,
-    });
+    
   }
 
 onSubmit(){
-<<<<<<< HEAD
   console.log(this.form.value);
   /* suleman sir code
   this.authService.singIn(this.form.value).then(response=>{
@@ -67,8 +63,5 @@ onSubmit(){
   this.router.navigateByUrl('/home');
   //this.router.navigate(['/home']);
   
-=======
-//  this.router.navigateByUrl('/home');
->>>>>>> 3a86b7496ee067d3103d9a5e4c7d42ddd0bc559d
 }
 }
