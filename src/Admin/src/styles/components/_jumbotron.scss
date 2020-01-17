@@ -1,0 +1,46 @@
+// Homepage Jumbotron
+@supports(place-items:center center) {
+    .layout-home {
+        .jumbotron {
+            display: grid;
+        }
+    }
+}
+
+layout-home {
+    .jumbotron {
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        background-color: $primary;
+        background-image: url('src/assets/home_jumbotron.jpg');
+        background-size: cover;
+        background-position: center center;
+        height: 55vh;
+        width: 100vw;
+        margin-bottom: 0;
+        display: flex;
+        margin-top: -$nav-link-height/2.25;
+        align-items: center;
+        justify-items: center;
+        @include media-breakpoint-down(xs) {
+            margin-top: -$nav-link-height;
+        }
+        .container {
+            h1 {
+                margin: 0;
+                color: white;
+                font-size: $font-size-base * 4;
+                @include media-breakpoint-up(lg) {
+                    font-size: $font-size-base * 7;
+                }
+            }
+            p {
+                margin: 0 auto;
+                text-align: center;
+                @include media-breakpoint-up(md) {
+                    max-width: 50%;
+                }
+            }
+        }
+    }
+}

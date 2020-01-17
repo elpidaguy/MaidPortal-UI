@@ -1,0 +1,164 @@
+
+// --------------------------------------------------------------------------------------
+// Include any  style rules for your custom theming here
+// Ideally this should only override existing classes
+// --------------------------------------------------------------------------------------
+
+// default page heading
+.page-heading {   
+    font-size: 2.0em;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+body {
+    color: #343434;
+     background-color: #f7f7f7;
+    font-family: 'Circular', Arial, Helvetica, sans-serif;
+}
+
+  
+a:hover {
+    outline-width: 0;
+    color: $primary !important;
+    text-decoration: none;    
+}
+
+.text-muted {
+    color: $secondary !important;
+}
+.topHeader{
+    padding-top: 0px;
+    padding-bottom: 0px;    
+}
+.input-group-text{
+    background-color: #f1f1f1;  
+    font-size: 14px;
+}
+#search-addon{
+    font-size: 14px;
+}
+h1{
+    font-size: 2.0rem;
+}
+h5{
+    font-size: 1.1rem;
+}
+.display-4{
+    font-size: 2.0rem;
+}
+.footer
+{
+background-color: #ffffff !important;
+}
+
+.ng-progress-bar.-active{
+   position: fixed !important;
+   left: 0px !important;
+   top: 0px !important;
+   height: 100% !important;
+   width: 100% !important;
+   background-color: #ffffff !important;
+   opacity: 0.7 !important;
+   z-index: 9999 !important;
+}
+.ng-spinner{
+    z-index: 99999 !important;
+    top: 50% !important;
+    left: 50%;
+}
+.ng-spinner-icon{
+    width: 40px !important;
+    height: 40px !important;
+    border-top: 5px solid $bipi !important;
+    border-left: 5px solid $bipi !important;
+    -webkit-animation:.8s linear infinite spinner-animation;
+    animation: .7s linear infinite spinner-animation
+}
+
+.parentcolorChange
+{
+    background: #e3e3e3
+}
+
+.parentcolorChange .childcolorChange
+{
+    background: #e3e3e3 !important;
+}
+.new-address .card-body{
+    background-color: #fff3cd;
+}
+
+.carousel-caption h3,.carousel-caption p{    
+    color:black;
+}
+.modal.fade.show.d-block{
+    z-index: 1000000;
+}
+.inActiveDist{
+    background-color: #E8E8E8;	
+}
+
+  .imgwrapper{
+    width: 100% !important;
+    height: auto !important;
+    padding: 8% !important;
+    margin-top:-20%; 
+  }
+
+  .announcementCustomCarosel{
+      margin: 15px 0px;      
+  }
+  .announcementBody{
+      width: 100%;
+      height: 145px;          
+      border-radius: 2px;
+      color: #0c5460;
+      background-color: #d1ecf1;
+      border-color: #bee5eb;
+  }
+  .announcementBody .carousel-caption{
+    animation-name: fadeInUpSD;
+    animation-duration: 1s;
+    opacity: 1; 
+  }
+  .announcementBody .carousel-caption fa-icon,.announcementBody .carousel-caption p{
+    color: #0c5460;
+  }
+  .announcementBody .carousel-caption p{
+      text-shadow: none;
+  }
+  .announcementCustomCarosel .carousel .carousel-indicators{
+      bottom: 5px;
+  }
+  .announcementCustomCarosel .carousel-indicators li{
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #0c5460;
+  }
+  .announcementCustomCarosel .carousel-indicators li.active{      
+    background-color: #04a8c5; 
+  }
+  .announcementCustomCarosel span.carousel-control-prev-icon{     
+     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23#0c5460' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+     cursor: pointer;
+
+  }
+  .announcementCustomCarosel span.carousel-control-next-icon{     
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23#0c5460' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+    cursor: pointer;
+ }
+  @-webkit-keyframes fadeInUpSD {0% {opacity: 0;-webkit-transform: translateX(100px);transform: translateX(100px);}100% {opacity: 1;-webkit-transform: none;transform: none;}}@keyframes fadeInUpSD {0% {opacity: 0;-webkit-transform: translateX(100px);transform: translateX(100px);}100% {opacity: 1;-webkit-transform: none;transform: none;}}.fadeInUpSD {-webkit-animation-name: fadeInUpSD;animation-name: fadeInUpSD;}
+
+  .product-list-grid .card .card-footer{
+      padding-left:10px;
+      padding-right:10px;  
+  }
+  
+  ::-ms-clear {
+    display: none !important;
+  }
+  .ngxImageZoomContainer {
+      width: 100% !important;
+      height: 100% !important;
+  }

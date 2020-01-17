@@ -1,4 +1,6 @@
-import { NgModule } from '@angular/core';
+import { maidAppConfig } from './../config/app.config';
+import { applicationConfiguration } from 'src/app/config/app.config';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SharedRoutingModule } from './shared-routing.module';
@@ -18,32 +20,103 @@ import { CategoryDetailsComponent } from './containers/category-details/category
 import { DataUploadComponent } from './containers/data-upload/data-upload.component';
 import { MessageBoardComponent } from './containers/message-board/message-board.component';
 import { UserTableComponent } from './containers/user-table/user-table.component';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+
+// ng-bootstrap modules
+import {
+  NgbTooltipModule,
+  NgbCollapseModule,
+  NgbDatepickerModule,
+  NgbTabsetModule,
+  NgbPaginationModule,
+  NgbPopoverModule,
+  NgbAccordionModule,
+  NgbModalModule,
+  NgbCarouselModule,
+  NgbDropdownModule,
+} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     AddressDisplayComponent,
-     AddressFormComponent, 
-     AnnouncementFormComponent,
-      CategoryFormComponent, 
-      ChangePasswordFormComponent,
-       ConfirmActionComponent, 
-       GenericBrowseComponent, 
-       ModalComponent, 
-       MaidsFormComponent,
-        SearchComponent,
-         SortMaidsComponent,
-          UserFormComponent,
-           CategoryDetailsComponent,
-            DataUploadComponent, 
-            MessageBoardComponent,
-             UserTableComponent, 
-             PageNotFoundComponent
-            ],
+    AddressFormComponent,
+    AnnouncementFormComponent,
+    CategoryFormComponent,
+    ChangePasswordFormComponent,
+    ConfirmActionComponent,
+    GenericBrowseComponent,
+    ModalComponent,
+    MaidsFormComponent,
+    SearchComponent,
+    SortMaidsComponent,
+    UserFormComponent,
+    CategoryDetailsComponent,
+    DataUploadComponent,
+    MessageBoardComponent,
+    UserTableComponent,
+  ],
   imports: [
+    SharedRoutingModule,
+    // angular
     CommonModule,
-    SharedRoutingModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+
+    // 3rd party UI
+    FontAwesomeModule,
+
+
+    /**
+    * ng-bootstrap modules
+    * only those that are used by app
+    * should be imported to reduce bundle size
+    */
+    NgbDatepickerModule,
+    NgbCollapseModule,
+    NgbModalModule,
+    NgbTabsetModule,
+    NgbPaginationModule,
+    NgbPopoverModule,
+    NgbAccordionModule,
+    NgbCarouselModule,
+    NgbDropdownModule,
+    NgbTooltipModule,
+    NgbPopoverModule,
+  ],
+  exports: [
+    // angular
+    CommonModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    // 3rd party UI
+    FontAwesomeModule,
+
+    NgbDatepickerModule,
+    NgbCollapseModule,
+    NgbModalModule,
+    NgbTabsetModule,
+    NgbPaginationModule,
+    NgbPopoverModule,
+    NgbAccordionModule,
+    NgbCarouselModule,
+    NgbDropdownModule,
+    NgbTooltipModule,
+    NgbPopoverModule,
   ]
 })
-export class SharedModule { }
+
+export class SharedModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: SharedModule,
+      providers: [
+        { provide: applicationConfiguration, useValue: maidAppConfig },
+      ],
+    };
+  }
+}

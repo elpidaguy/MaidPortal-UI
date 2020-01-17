@@ -1,0 +1,28 @@
+auth-login {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $primary;
+    background-size: cover;
+    background-position: center center;
+    @include media-breakpoint-down(xs) {
+        margin-top: -9rem;
+    }
+    @include media-breakpoint-up(sm) {
+        margin-top: -6.5rem;
+    }
+    @include media-breakpoint-up(lg) {
+        margin-top: -7.2rem;
+    }
+}
+
+.card--login{
+    @media (min-width: 768px) {
+        width: 60vw;
+    }
+    @media (min-width: 992px) {
+        width: 25vw;
+    }
+}

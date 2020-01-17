@@ -1,0 +1,29 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+
+footer {
+    background-color: #00457c;
+    background-size: cover;
+    [class*='col'] {
+        text-align: center;
+    }
+    .footer__list-items {
+      list-style-type: none;
+      padding-left: 0;
+      font-weight: 300;
+      li a,
+      li button {
+        color: white;
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  
