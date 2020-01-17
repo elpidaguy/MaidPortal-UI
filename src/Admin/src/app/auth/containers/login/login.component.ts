@@ -8,20 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-<<<<<<< HEAD
   form = new FormGroup({
     username: new FormControl(''),
     password: new FormControl(''),
     rememberMe: new FormControl(false)
   });
-  message :string='';
-
-  
-=======
-  form: FormGroup;
+  message: string='';
   isAnon: boolean;
   formBuilder: FormBuilder;
->>>>>>> 3a86b7496ee067d3103d9a5e4c7d42ddd0bc559d
 
   constructor(
   ) {}
@@ -35,7 +29,6 @@ export class LoginComponent implements OnInit {
   }
 
 onSubmit(){
-<<<<<<< HEAD
   console.log(this.form.value);
   /* suleman sir code
   this.authService.singIn(this.form.value).then(response=>{
@@ -67,8 +60,5 @@ onSubmit(){
   this.router.navigateByUrl('/home');
   //this.router.navigate(['/home']);
   
-=======
-//  this.router.navigateByUrl('/home');
->>>>>>> 3a86b7496ee067d3103d9a5e4c7d42ddd0bc559d
 }
 }
