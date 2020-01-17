@@ -8,11 +8,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component'; 
 import { AuthModule } from './auth/auth.module';
 import { FormsModule } from '@angular/forms';
+import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
+import { HomeComponent } from './layout/home/home.component';
+import { LayoutModule } from './layout/layout.module';
+import { layoutRoutingModule } from './layout/layout-routing.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PageNotFoundComponent,
+    HomeComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -21,7 +28,9 @@ import { FormsModule } from '@angular/forms';
     //unesessary page not found routing of approutingmodule
     //app modules
     AuthModule,
+    layoutRoutingModule,
     AppRoutingModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
