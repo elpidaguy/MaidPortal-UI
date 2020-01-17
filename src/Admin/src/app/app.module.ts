@@ -17,8 +17,7 @@ import { layoutRoutingModule } from './layout/layout-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent,
-    HomeComponent
+    PageNotFoundComponent
     
   ],
   imports: [
@@ -28,6 +27,7 @@ import { layoutRoutingModule } from './layout/layout-routing.module';
     //unesessary page not found routing of approutingmodule
     //app modules
     AuthModule,
+    LayoutModule,
     layoutRoutingModule,
     AppRoutingModule
    

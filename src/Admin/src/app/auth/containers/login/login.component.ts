@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
     password: new FormControl(''),
     rememberMe: new FormControl(false)
   });
+  message :string='';
+
   
 
   constructor(private authService:AppAuthService,
@@ -38,8 +40,28 @@ onSubmit(){
     console.log(error);
   });
   */
-
- this.router.navigateByUrl('/home');
+ this.authService.login(this.form.value).then(response=>{
+  console.log(response);
+  //to nevigate to home page as per role
+  localStorage.setItem('loggedInPersonRole','propertyToset person role');
+  //to remember username while session
+  localStorage.setItem('loggedInPersonUsername','propertyToset person username');
+  if(response)
+  {
+    this.message="login successfull";
+  }
+  else{
+    this.message="Invalid email of password";
+  }
+  
+  
+ }).catch(error=>{
+   console.log(error);
+   this.message="Please Try later";
+ });
+ //put logic here to nevigate person as per admin / user/ maid home page
+  this.router.navigateByUrl('/home');
+  //this.router.navigate(['/home']);
   
 }
 }

@@ -17,6 +17,9 @@ import { layoutRoutingModule } from './layout-routing.module';
   imports: [
     CommonModule,
     layoutRoutingModule
+  ],
+  exports:[
+    HeaderComponent
   ]
   
 })

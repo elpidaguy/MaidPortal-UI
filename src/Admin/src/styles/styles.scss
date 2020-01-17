@@ -153,8 +153,24 @@ html {
 
   .navbar
   {
-    height: 80px;
+    height: 50px;
+    background-color: $Dark-color;
   }
+  a.nav-item li.nav-item{
+    display: inline;
+  }
+  .page-footer{
+    background-color: $Dark-color;
+    .font-weight-bold {
+      color: white;
+    }
+    li{
+      a{
+        color: white;
+      }
+    }
+  }
+  
   
   .dropdown-item.active {
     background-color: $Dark-color!important;
