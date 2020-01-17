@@ -18,29 +18,10 @@ import { CategoryDetailsComponent } from './containers/category-details/category
 import { DataUploadComponent } from './containers/data-upload/data-upload.component';
 import { MessageBoardComponent } from './containers/message-board/message-board.component';
 import { UserTableComponent } from './containers/user-table/user-table.component';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 
 @NgModule({
-  declarations: [
-    AddressDisplayComponent,
-     AddressFormComponent, 
-     AnnouncementFormComponent,
-      CategoryFormComponent, 
-      ChangePasswordFormComponent,
-       ConfirmActionComponent, 
-       GenericBrowseComponent, 
-       ModalComponent, 
-       MaidsFormComponent,
-        SearchComponent,
-         SortMaidsComponent,
-          UserFormComponent,
-           CategoryDetailsComponent,
-            DataUploadComponent, 
-            MessageBoardComponent,
-             UserTableComponent, 
-             PageNotFoundComponent
-            ],
+  declarations: [AddressDisplayComponent, AddressFormComponent, AnnouncementFormComponent, CategoryFormComponent, ChangePasswordFormComponent, ConfirmActionComponent, GenericBrowseComponent, ModalComponent, MaidsFormComponent, SearchComponent, SortMaidsComponent, UserFormComponent, CategoryDetailsComponent, DataUploadComponent, MessageBoardComponent, UserTableComponent],
   imports: [
     CommonModule,
     SharedRoutingModule
