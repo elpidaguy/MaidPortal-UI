@@ -1,20 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AppStateService } from './shared/services/app-state/app-state.service';
 
-declare var $:any;
+
+declare var $: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent  implements OnInit{
- loggedInPerson:string=null;
- loggedInPersonUsername:string=null;
-  ngOnInit(){
-  /* this.loggedInPerson=localStorage.getItem("loggedInPerson");
-   this.loggedInPersonUsername=localStorage.getItem("loggedInPersonUsername");
-   console.log(this.loggedInPerson);
-   console.log(this.loggedInPerson);
-   */
-  }
 
+export class AppComponent {
+  isLoggedIn$: Observable<boolean>;
+
+  constructor(
+    private appStateService: AppStateService,
+  ) {
+    this.isLoggedIn$ = this.appStateService.isLoggedIn;
+  }
 }

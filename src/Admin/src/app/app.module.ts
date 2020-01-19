@@ -6,6 +6,9 @@ import { AuthModule } from './auth/auth.module';
 import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
 import { LayoutModule } from './layout/layout.module';
 import { SharedModule } from './shared/shared.module';
+import { AdminModule } from './admin/admin.module';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -19,7 +22,9 @@ import { SharedModule } from './shared/shared.module';
      * app modules
      */
     AppRoutingModule,
+    AdminModule,
     AuthModule,
+    BrowserAnimationsModule,
     BrowserModule,
     LayoutModule,
 
@@ -30,6 +35,8 @@ import { SharedModule } from './shared/shared.module';
      * can live in shared
      */
     SharedModule.forRoot(),
+    ToastrModule.forRoot(),
+
 
   ],
   providers: [],

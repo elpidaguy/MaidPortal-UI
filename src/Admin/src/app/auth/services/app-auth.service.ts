@@ -1,19 +1,36 @@
-import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
-import { ENDPPOINTS } from 'src/app/endpoints/rest.endpoints';
+import { Observable, of } from 'rxjs';
+import { Injectable, Inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { AppStateService } from 'src/app/shared/services/app-state/app-state.service';
+import { applicationConfiguration, AppConfig } from 'src/app/config/app.config';
+
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
 export class AppAuthService {
 
-  constructor(private http:HttpClient ) { }
+  userType = '';
 
-  login(person)
-  {
-    return this.http.post(ENDPPOINTS.LOGIN,person).toPromise();
+  constructor(
+    private http: HttpClient,
+    private appStateService: AppStateService,
+    private router: Router,
+    @Inject(applicationConfiguration) private appConfig: AppConfig
+  ) { }
+
+  login(user, userType) {
+    userType === 'customer' ? this.userType = 'customer' : this.userType = 'maid';
+
+    const url = `${this.appConfig.middlewareUrl}/${this.userType}/login`;
+    return this.http.post(url, user).toPromise();
   }
-  logout(person)
-  {
-    return this.http.post('http://localhost:8080/authenticate',person).toPromise();
+
+  logout(): Observable<any> {
+    this.appStateService.isLoggedIn.next(false);
+    this.appStateService.userSubject.next(null);
+    // this.router.navigate(['/login']);
+    return of(this.router.navigate(['/login']));
+
   }
 }

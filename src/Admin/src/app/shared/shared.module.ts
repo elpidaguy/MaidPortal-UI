@@ -39,6 +39,7 @@ import {
   NgbCarouselModule,
   NgbDropdownModule,
 } from '@ng-bootstrap/ng-bootstrap';
+import { AppStateService } from './services/app-state/app-state.service';
 
 @NgModule({
   declarations: [
@@ -115,6 +116,7 @@ export class SharedModule {
     return {
       ngModule: SharedModule,
       providers: [
+        AppStateService,
         { provide: applicationConfiguration, useValue: maidAppConfig },
       ],
     };

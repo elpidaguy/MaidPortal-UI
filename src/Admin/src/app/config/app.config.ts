@@ -13,7 +13,7 @@ export const maidAppConfig: AppConfig = {
   approvalRequired: environment.approvalRequired,
   faqEnabled: environment.faqEnabled,
   isReadOnly: environment.isReadOnly,
-
+  middlewareUrl: environment.middlewareUrl,
 
 };
 
@@ -38,8 +38,9 @@ export interface AppConfig {
    * To learn more about these roles and the security profiles that comprise them
    * read [here](https://developer.ordercloud.io/documentation/platform-guides/authentication/security-profiles)
    */
-  systemNotificationEnabled: boolean,
-  approvalRequired: boolean,
-  faqEnabled: boolean,
-  isReadOnly: boolean,
+  systemNotificationEnabled: boolean;
+  approvalRequired: boolean;
+  faqEnabled: boolean;
+  isReadOnly: boolean;
+  middlewareUrl: string;
 }

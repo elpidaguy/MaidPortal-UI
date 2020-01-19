@@ -8,6 +8,7 @@ export const environment = {
   approvalRequired: false,
   faqEnabled: true,
   isReadOnly: false,
+  middlewareUrl: 'http://localhost:8080/maidportal',
 };
 
 /*
