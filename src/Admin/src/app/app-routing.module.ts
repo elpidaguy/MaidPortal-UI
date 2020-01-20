@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { TermsAndConditionsComponent } from './static-pages/terms-and-conditions/terms-and-conditions.component';
+import { PrivacyPolicyComponent } from './static-pages/privacy-policy/privacy-policy.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'admin', loadChildren: './admin/admin.module#AdminModule' },
-  // { path: '**', component: PageNotFoundComponent }
+  { path: 'privacy-policy', component: PrivacyPolicyComponent },
+  {
+    path: 'terms-and-conditions',
+    component: TermsAndConditionsComponent,
+  },
 
 ];
 

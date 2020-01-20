@@ -9,12 +9,16 @@ import { SharedModule } from './shared/shared.module';
 import { AdminModule } from './admin/admin.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TermsAndConditionsComponent } from './static-pages/terms-and-conditions/terms-and-conditions.component';
+import { PrivacyPolicyComponent } from './static-pages/privacy-policy/privacy-policy.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    TermsAndConditionsComponent,
+    PrivacyPolicyComponent
 
   ],
   imports: [

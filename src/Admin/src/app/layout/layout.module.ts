@@ -6,6 +6,7 @@ import { MainComponent } from './main/main.component';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { PivacyPolicyComponent } from './header/pivacy-policy/pivacy-policy.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     HeaderComponent,
     HomeComponent,
-    MainComponent]
+    MainComponent,
+    PivacyPolicyComponent]
 
 })
 export class LayoutModule { }
