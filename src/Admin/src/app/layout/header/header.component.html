@@ -26,7 +26,7 @@
              alt="{{ appConfig.appname }}" />
       </a> -->
 
-      <ul class="navbar-nav mr-auto" *ngIf="(isLoggedIn$ | async); let isLoggedIn">
+      <ul class="navbar-nav mr-auto" *ngIf="isLoggedIn">
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" routerLink="/home">
             Home

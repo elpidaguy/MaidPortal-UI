@@ -1,5 +1,7 @@
-<app-header class="fixed-top"  *ngIf="(isLoggedIn$ | async)">
+<app-header class="fixed-top">
 </app-header>
+<!-- <app-header class="fixed-top" *ngIf="(isLoggedIn$ | async)">
+</app-header> -->
 
 <app-main></app-main>
 <app-footer *ngIf="(isLoggedIn$ | async)"></app-footer>

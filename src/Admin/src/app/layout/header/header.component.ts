@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
   faCaretDown = faCaretDown;
   faSignOutAlt = faSignOutAlt;
   user$: Observable<any> = this.appStateService.userSubject;
+  isLoggedIn: boolean = false;
 
   constructor(
     private router: Router,
@@ -31,9 +32,9 @@ export class HeaderComponent implements OnInit {
     //   console.log(r);
     // });
 
-    // this.appStateService.isLoggedIn.subscribe((e) => {
-    //   console.log(e);
-    // });
+    this.appStateService.isLoggedIn.subscribe((e) => {
+      this.isLoggedIn = e;
+    });
   }
 
   logout() {
