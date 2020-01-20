@@ -13,9 +13,9 @@ import { AppAuthService } from './services/app-auth.service';
 
 
 @NgModule({
-  declarations: 
+  declarations:
   [ForgotPasswordComponent,
-     LoginComponent, 
+     LoginComponent,
      ResetPasswordComponent
     ],
   imports: [

@@ -11,6 +11,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TermsAndConditionsComponent } from './static-pages/terms-and-conditions/terms-and-conditions.component';
 import { PrivacyPolicyComponent } from './static-pages/privacy-policy/privacy-policy.component';
+import { MasterService } from './shared/services/master/master.service';
 
 
 @NgModule({
@@ -43,7 +44,7 @@ import { PrivacyPolicyComponent } from './static-pages/privacy-policy/privacy-po
 
 
   ],
-  providers: [],
+  providers: [MasterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

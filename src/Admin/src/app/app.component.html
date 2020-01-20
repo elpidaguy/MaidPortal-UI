@@ -1,4 +1,4 @@
-<app-header class="fixed-top">
+<app-header class="fixed-top"  *ngIf="(isLoggedIn$ | async)">
 </app-header>
 
 <app-main></app-main>

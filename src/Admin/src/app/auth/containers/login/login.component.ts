@@ -6,6 +6,7 @@ import { applicationConfiguration, AppConfig } from 'src/app/config/app.config';
 import { Customer } from 'src/app/shared/models/Customer';
 import { ToastrService } from 'ngx-toastr';
 import { AppStateService } from 'src/app/shared/services/app-state/app-state.service';
+import { MasterService } from 'src/app/shared/services/master/master.service';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,8 @@ import { AppStateService } from 'src/app/shared/services/app-state/app-state.ser
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
+  userTypes: any = [];
 
   form = new FormGroup({
     username: new FormControl(''),
@@ -27,12 +30,18 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private toastrService: ToastrService,
     private appStateService: AppStateService,
+    private masterService: MasterService,
     @Inject(applicationConfiguration) private appConfig: AppConfig
   ) {
 
   }
 
   ngOnInit() {
+
+    this.masterService.getUserTypes().then((r) => {
+      // console.log(r);
+      this.userTypes = r;
+    });
 
   }
 

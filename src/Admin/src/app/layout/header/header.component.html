@@ -26,7 +26,7 @@
              alt="{{ appConfig.appname }}" />
       </a> -->
 
-      <ul class="navbar-nav mr-auto" *ngIf="(isLoggedIn$ | async)">
+      <ul class="navbar-nav mr-auto" *ngIf="(isLoggedIn$ | async); let isLoggedIn">
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" routerLink="/home">
             Home
@@ -79,13 +79,13 @@
         </li>
       </ul>
       <div class="form-inline"
-           *ngIf="!(isLoggedIn$ | async)">
+           *ngIf="!isLoggedIn">
         <a class="btn btn-sm btn-outline-dark"
            routerLink="/login">Login</a>
         <a class="btn btn-sm btn-primary d-none d-sm-block ml-2"
            routerLink="/register">Register</a>
       </div>
-      <ul class="navbar-nav" *ngIf="(isLoggedIn$ | async)">
+      <ul class="navbar-nav" *ngIf="isLoggedIn">
         <li class="nav-item dropdown" ngbDropdown placement="bottom-right">
           <!-- <div class="nav-link dropdown-toggle text-nowrap"
                id="account-dropdown"
