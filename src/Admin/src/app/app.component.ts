@@ -16,6 +16,13 @@ export class AppComponent {
   constructor(
     private appStateService: AppStateService,
   ) {
+    const userData = localStorage.getItem('userData');
+    // console.log(JSON.parse(userData));
+    if (userData) {
+      this.appStateService.userSubject.next(JSON.parse(userData));
+      this.appStateService.isLoggedIn.next(true);
+    }
+
     this.isLoggedIn$ = this.appStateService.isLoggedIn;
   }
 }

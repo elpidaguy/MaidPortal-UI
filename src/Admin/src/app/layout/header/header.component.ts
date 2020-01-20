@@ -27,9 +27,9 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.appStateService.userSubject.subscribe((r)=>{
+    this.appStateService.userSubject.subscribe((r) => {
       console.log(r);
-    })
+    });
   }
 
   logout() {

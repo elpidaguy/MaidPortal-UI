@@ -43,7 +43,13 @@ export class LoginComponent implements OnInit {
       password: this.form.get('password').value,
     }
     this.authService.login(obj, this.form.get('userType').value).then((response) => {
+      const userData = localStorage.getItem('userData');
       console.log(response);
+      if (userData) {
+        localStorage.set('userData', JSON.stringify(response));
+      } else {
+        localStorage.setItem('userData', JSON.stringify(response));
+      }
       this.appStateService.userSubject.next(response);
       this.appStateService.isLoggedIn.next(true);
       this.toastrService.success('Login Successful!');

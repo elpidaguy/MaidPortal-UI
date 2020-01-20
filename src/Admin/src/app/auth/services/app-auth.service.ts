@@ -29,6 +29,7 @@ export class AppAuthService {
   logout(): Observable<any> {
     this.appStateService.isLoggedIn.next(false);
     this.appStateService.userSubject.next(null);
+    localStorage.removeItem('userData');
     // this.router.navigate(['/login']);
     return of(this.router.navigate(['/login']));
 
