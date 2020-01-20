@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   faCaretDown = faCaretDown;
   faSignOutAlt = faSignOutAlt;
   user$: Observable<any> = this.appStateService.userSubject;
-  isLoggedIn: boolean = false;
+  isLoggedIn = false;
 
   constructor(
     private router: Router,
