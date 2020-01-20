@@ -26,7 +26,7 @@
              alt="{{ appConfig.appname }}" />
       </a> -->
 
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav mr-auto" *ngIf="(isLoggedIn$ | async)">
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" routerLink="/home">
             Home
@@ -40,10 +40,10 @@
             </button>
             <div class="dropdown-content" style="z-index:15 !important">
               <a class="dropdown-item nav-link" routerLink="/products">
-                <small>Browse maid</small>
+                Browse Maid
               </a>
               <a class="dropdown-item nav-link" routerLink="/admin/massorder">
-                <small>something here</small>
+                something here
               </a>
             </div>
           </div>
@@ -78,14 +78,14 @@
           </div>
         </li>
       </ul>
-      <!-- <div class="form-inline"
-           *ngIf="anonymous$ | async">
+      <div class="form-inline"
+           *ngIf="!(isLoggedIn$ | async)">
         <a class="btn btn-sm btn-outline-dark"
            routerLink="/login">Login</a>
         <a class="btn btn-sm btn-primary d-none d-sm-block ml-2"
            routerLink="/register">Register</a>
-      </div> -->
-      <ul class="navbar-nav" *ngIf="!(anonymous$ | async)">
+      </div>
+      <ul class="navbar-nav" *ngIf="(isLoggedIn$ | async)">
         <li class="nav-item dropdown" ngbDropdown placement="bottom-right">
           <!-- <div class="nav-link dropdown-toggle text-nowrap"
                id="account-dropdown"
@@ -113,24 +113,14 @@
             <button class="dropdown-item" routerLinkActive="active" routerLink="/profile/orders">
               <small>Order History</small>
             </button>
-            <button class="dropdown-item" routerLinkActive="active" routerLink="/profile/addresses"
-              *ngIf="isBrandUser && !permissionFlag">
-              <small>Address Book</small>
-            </button>
-            <button class="dropdown-item" routerLinkActive="active" routerLink="/profile/email-notification">
-              <small>Email Notifications</small>
+            <button class="dropdown-item" routerLinkActive="active" routerLink="/profile/addresses">
+              <small>Address</small>
             </button>
             <button class="dropdown-item" routerLinkActive="active" routerLink="contact-us">
               <small>Contact Us</small>
             </button>
             <button *ngIf="showHelp" class="dropdown-item" routerLinkActive="active" routerLink="help">
               <small>Help</small>
-            </button>
-            <button class="dropdown-item" routerLinkActive="active" routerLink="privacy-policy">
-              <small>Privacy Policy</small>
-            </button>
-            <button class="dropdown-item" routerLinkActive="active" routerLink="copyright-information">
-              <small>Copyright Information</small>
             </button>
             <button class="dropdown-item" (click)="logout()" href="/login">
               <fa-icon [icon]="faSignOutAlt"></fa-icon> <small>Logout</small>

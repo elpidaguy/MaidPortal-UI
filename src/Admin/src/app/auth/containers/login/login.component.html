@@ -1,12 +1,57 @@
-<section class="login large-paddding-top">
+<!-- <section class="login large-paddding-top">
   <div class="text-center">
     <h1 class="display-4">{{appConfig.appname}}</h1>
   </div>
   <div class="mx-auto mt-4" style="max-width:350px;">
     <h3 class="text-center headline-text">Account Login</h3>
-    <!-- <div *ngIf="message!=''" class="alert alert-danger" role="alert">
-      {{message}}
-    </div> -->
+    <form (ngSubmit)="onSubmit()" [formGroup]="form" name="LoginForm" autocomplete="off" novalidate>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input formControlName="username" id="username" type="text" class="form-control" placeholder="Username"
+          autocapitalize="off" autofocus />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input formControlName="password" type="password" class="form-control" placeholder="Password" id="password" />
+      </div>
+
+      <div class="form-group row p-2">
+        <div class="col-md-4">
+          <input id="customer" class="m-1" type="radio" value="customer" name="userType" formControlName="userType" />
+          <label for="customer"> Customer</label>
+        </div>
+
+        <div class="col-md-4">
+          <input id="maid" type="radio" class="m-1" value="maid" name="userType" formControlName="userType" />
+          <label for="maid"> Maid</label>
+        </div>
+
+        <div class="col-md-4">
+          <input id="admin" type="radio" class="m-1" value="admin" name="userType" formControlName="userType" />
+          <label for="admin"> Admin</label>
+        </div>
+      </div>
+
+      <button id="submitBtn" type="submit" [disabled]="!form.valid"
+        class="btn btn-primary btn-lg btn-block">Submit</button>
+    </form>
+    <button type="button" class="btn btn-link btn-block text-center" routerLink="/forgot-password">Forgot
+      Password</button>
+  </div>
+</section> -->
+
+
+<div class="container__login text-center">
+  <p class="text-white">New to this site?
+    <button type="button" class="btn btn-success" routerLink="/register">Register now</button>
+  </p>
+  <div class="card card--login align-items-center shadow px-5 p-5">
+    <img class="img-fluid" width="90" height="90px" src="/assets/logo.png" alt="{{appConfig.appname}}">
+    <br>
+    <span>
+      <b>Welcome to Maid Portal</b>
+    </span>
+    <br>
     <form (ngSubmit)="onSubmit()" [formGroup]="form" name="LoginForm" autocomplete="off" novalidate>
       <div class="form-group">
         <label for="username">Username</label>
@@ -20,9 +65,6 @@
 
       <div class="form-group row">
         <div class="col-md-4">
-          <label> User Type: </label>
-        </div>
-        <div class="col-md-4">
           <input id="customer" type="radio" value="customer" name="userType" formControlName="userType" />
           <label for="customer"> Customer</label>
         </div>
@@ -31,12 +73,15 @@
           <input id="maid" type="radio" value="maid" name="userType" formControlName="userType" />
           <label for="maid"> Maid</label>
         </div>
+
+        <div class="col-md-4">
+          <input id="admin" type="radio" value="admin" name="userType" formControlName="userType" />
+          <label for="admin"> Admin</label>
+        </div>
       </div>
 
       <button id="submitBtn" type="submit" [disabled]="!form.valid"
         class="btn btn-primary btn-lg btn-block">Submit</button>
     </form>
-    <button type="button" class="btn btn-link btn-block text-center" routerLink="/forgot-password">Forgot
-      Password</button>
-  </div>
-</section>
+    <button type="button" class="btn btn-link btn-block text-center" routerLink="/forgot-password">Reset Password
+    </button>
