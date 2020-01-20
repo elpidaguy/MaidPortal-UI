@@ -6,7 +6,7 @@
 // check out node_modules/bootstrap/variables.scss
 // --------------------------------------------------------------------------------------
 
-$bipip:   rgb(46, 75, 139);
+$MaidPortal:   rgb(46, 75, 139);
 // $blue:    #007bff;
 // $indigo:  #6610f2;
 // $purple:  #6f42c1;
@@ -31,7 +31,7 @@ $bipip:   rgb(46, 75, 139);
 // $black:    #000;
 // $night-rider: #343434;
 
-// $primary:       $bipip;
+// $primary:       $MaidPortal;
 // $secondary:     $night-rider;
 // $success:       $green;
 // $info:          $cyan;
@@ -51,8 +51,8 @@ $bipip:   rgb(46, 75, 139);
 
 
 
-$bipi:          #2e4b8b;
-$bipi-300:       #8ba7e5;
+$MaidPortal:          #2e4b8b;
+$MaidPortal-300:       #8ba7e5;
 $blue:          #283C7C;
 $indigo:        #6610f2 !default;
 $purple:        #541763;
@@ -79,8 +79,8 @@ $gray-900:      #212529 !default;
 $black:         #000 !default;
 
 $theme-colors: (
-    'purple': $bipi,
-    'purple-300': $bipi-300,
+    'purple': $MaidPortal,
+    'purple-300': $MaidPortal-300,
     'cyan-700': $cyan-700,
     'cyan': $cyan,
     'white': $white
@@ -94,7 +94,7 @@ $theme-colors: (
 //     'white': $white
 // );
 
-$primary:       $bipi;
+$primary:       $MaidPortal;
 $secondary:     $gray-500;
 $success:       $green;
 $info:          $cyan;
