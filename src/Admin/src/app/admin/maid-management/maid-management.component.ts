@@ -10,38 +10,38 @@ import { isNgTemplate } from '@angular/compiler';
   styleUrls: ['./maid-management.component.scss']
 })
 export class MaidManagementComponent implements OnInit {
-  maidList:any=[];
- 
-  constructor(private masterSvc:MasterService,
+  maidList: any = [];
+
+  constructor(
+    private masterSvc: MasterService,
     private router: Router,
-   // @Inject(applicationConfiguration) private appConfig: AppConfig
-    ) { }
+    // @Inject(applicationConfiguration) private appConfig: AppConfig
+  ) { }
 
   ngOnInit() {
-    this.maidList =this.masterSvc.getMaids();
+    // this.maidList = this.masterSvc.getMaids();
   }
 
-  onReload(){
+  onReload() {
 
   }
 
-  onRejectMaid(id:number){
-    console.log(this.maidList );
-     for(var v = 0;v<this.maidList.length;v++)
-     {
-       if(this.maidList[v].id===id)
-       {
+  onRejectMaid(id: number) {
+    console.log(this.maidList);
+
+    for (var v = 0; v < this.maidList.length; v++) {
+      if (this.maidList[v].id === id) {
         console.log(this.maidList[v]);
-         this.maidList.splice(this.maidList[v],1);
-       }
-     }
-      
-     }
+        this.maidList.splice(this.maidList[v], 1);
+      }
+    }
 
-     
   }
- 
-   
-  
+
+
+}
+
+
+
 
 

@@ -13,6 +13,9 @@ import { TermsAndConditionsComponent } from './static-pages/terms-and-conditions
 import { PrivacyPolicyComponent } from './static-pages/privacy-policy/privacy-policy.component';
 import { MasterService } from './shared/services/master/master.service';
 
+// 3rd party
+import { NgProgressModule } from '@ngx-progressbar/core';
+import { NgProgressHttpModule } from '@ngx-progressbar/http';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,8 @@ import { MasterService } from './shared/services/master/master.service';
      * with forRoot should be defined here, all else
      * can live in shared
      */
+    NgProgressModule,
+    NgProgressHttpModule,
     SharedModule.forRoot(),
     ToastrModule.forRoot(),
 
