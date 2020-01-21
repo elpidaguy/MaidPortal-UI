@@ -15,7 +15,7 @@ export class MasterService {
           title: 'first announcement',
         },
         {
-          title: 'second announcement',
+          title: 'second announcement second announcement second announcement second announcement second announcement second announcement',
         },
         {
           title: 'third announcement',

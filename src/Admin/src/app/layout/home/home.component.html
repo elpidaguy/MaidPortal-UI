@@ -12,10 +12,10 @@
           <div class="carousel-caption">
             <fa-icon class="pr-3" [icon]="faBullhorn"></fa-icon>
             <p class="mb-1">
-              {{ announcement.title.substr(0, 90)}}<span *ngIf="announcement.length > 90">...</span>
+              {{ announcement.title.substr(0, 90)}}<span *ngIf="announcement.title.length > 90">...</span>
             </p>
             <button *ngIf="announcement.title.length > 90" (click)="viewAnnouncement(announcement.title)"
-              class="btn btn-sm">View More</button>
+              class="btn btn-sm text-white btn-primary">View More</button>
           </div>
         </div>
       </ng-template>
