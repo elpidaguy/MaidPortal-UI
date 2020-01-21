@@ -10,13 +10,15 @@ import { ResetPasswordComponent } from './containers/reset-password/reset-passwo
 //routing
 import { AuthRoutingModule } from './auth-routing.module';
 import { AppAuthService } from './services/app-auth.service';
+import { RegisterComponent } from './containers/register/register.component';
 
 
 @NgModule({
   declarations:
   [ForgotPasswordComponent,
      LoginComponent,
-     ResetPasswordComponent
+     ResetPasswordComponent,
+     RegisterComponent
     ],
   imports: [
     AuthRoutingModule,
