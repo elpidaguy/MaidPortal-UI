@@ -1,1 +1,33 @@
-<p>maid-management works!</p>
+ 
+ 
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>List of Available Maids</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let maid of maidList | async">
+            <td> <img src="{{maid.imgUrl}}" style="height: 50px; width: 50px;"> </td> 
+            <td>{{maid.firstName}}</td>
+            <td>{{maid.lastName}}</td>
+            <td>{{maid.email}}</td>
+            <td>{{maid.phone}}</td>
+            <td>
+                <button (click)="rejectMaid(maid.id)" class="btn btn-success" >Accept</button>
+                <button (click)="onRejectMaid(maid.id)" class="btn btn-danger" style="margin-left: 10px" >Reject</button>
+                <button (click)="MaidDetails(maid.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
