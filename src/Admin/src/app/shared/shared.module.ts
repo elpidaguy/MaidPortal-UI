@@ -43,6 +43,7 @@ import { AppStateService } from './services/app-state/app-state.service';
 import { MaidCardComponent } from './components/maid-card/maid-card.component';
 import { MaidCardListComponent } from './components/maid-card-list/maid-card-list.component';
 import { MaidCardTableComponent } from './components/maid-card-table/maid-card-table.component';
+import { MaidService } from './services/Maid/maid.service';
 
 @NgModule({
   declarations: [
@@ -130,6 +131,7 @@ export class SharedModule {
       ngModule: SharedModule,
       providers: [
         AppStateService,
+        MaidService,
         { provide: applicationConfiguration, useValue: maidAppConfig },
       ],
     };

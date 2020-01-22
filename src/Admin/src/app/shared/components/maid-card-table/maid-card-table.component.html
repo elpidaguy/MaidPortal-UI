@@ -1,1 +1,28 @@
-<p>maid-card-table works!</p>
+<div class="row itemTableRow p-1">
+  <div class="col-2">
+    <img class="card-img-top img-fluid flex-shrink-0" style="cursor: pointer" [routerLink]="['/maids', maid.id]"
+      appFallbackImage
+      src="{{  maid?.imgUrl ? maid?.imgUrl : 'https://via.placeholder.com/500x500.png?text=Maid%20Photo%20Not%20Found' }}"
+      alt="{{maid.id}}">
+  </div>
+  <div class="col-1 d-none d-sm-block">
+    <p class="card-text text-muted breakWord" [innerHtml]="maid.id">{{maid.id}}</p>
+  </div>
+  <div class="col-5">
+    <p class="card-title card-text breakWord" title="{{maid.firstname}}" [routerLink]="['/maids', maid.id]"
+      style="cursor: pointer">{{ maid.firstName }} {{maid.lastName}}</p>
+  </div>
+  <div class="col-2">
+    <p class="card-text mb-0">
+        &#8377; {{ maid?.salary }}
+    </p>
+  </div>
+  <div class="col-2">
+    <div class="d-flex flex-row">
+      <div>
+        <button [routerLink]="['/maids', maid.id]" class="btn btn-default btn-block btn-outline-dark">View
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
