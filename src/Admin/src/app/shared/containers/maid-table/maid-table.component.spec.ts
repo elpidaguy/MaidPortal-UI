@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserTableComponent } from './user-table.component';
+import { MaidTableComponent } from './maid-table.component';
 
-describe('UserTableComponent', () => {
-  let component: UserTableComponent;
-  let fixture: ComponentFixture<UserTableComponent>;
+describe('MaidTableComponent', () => {
+  let component: MaidTableComponent;
+  let fixture: ComponentFixture<MaidTableComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserTableComponent ]
+      declarations: [ MaidTableComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserTableComponent);
+    fixture = TestBed.createComponent(MaidTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

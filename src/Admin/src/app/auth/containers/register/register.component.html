@@ -7,27 +7,27 @@
               <h3 class="text-center headline-text mb-3">Sign Up</h3>
               <form (ngSubmit)="onSubmit()" novalidate [formGroup]="form" name="RegisterForm">
                      <div class="form-group">
-                            <label class="sr-only" for="Username">Username</label>
-                            <input type="text" formControlName="Username" class="form-control" id="Username"
-                                   placeholder="Username" autofocus="true" autocomplete="off" />
-                            <span *ngIf="hasRequiredError('Username')" class="error-message">Username is required</span>
+                            <label class="sr-only" for="userName">Username</label>
+                            <input type="text" formControlName="userName" class="form-control" id="userName"
+                                   placeholder="User Name" autofocus="true" autocomplete="off" />
+                            <span *ngIf="hasRequiredError('userName')" class="error-message">Username is required</span>
                      </div>
                      <div class="form-group">
-                            <label class="sr-only" for="FirstName">First Name</label>
-                            <input type="text" formControlName="FirstName" class="form-control" id="FirstName"
+                            <label class="sr-only" for="firstName">First Name</label>
+                            <input type="text" formControlName="firstName" class="form-control" id="firstName"
                                    placeholder="First Name" autocomplete="off" />
-                            <span *ngIf="hasRequiredError('FirstName')" class="error-message">First Name is
+                            <span *ngIf="hasRequiredError('firstName')" class="error-message">First Name is
                                    required</span>
                             <span *ngIf="hasPatternError('FirstName')" class="error-message">Name can only contain
                                    characters Aa-Zz 0-9 - ' .</span>
                      </div>
                      <div class="form-group">
-                            <label class="sr-only" for="LastName">Last Name</label>
-                            <input type="text" formControlName="LastName" class="form-control" id="LastName"
+                            <label class="sr-only" for="lastName">Last Name</label>
+                            <input type="text" formControlName="lastName" class="form-control" id="lastName"
                                    placeholder="Last Name" autocomplete="off" />
-                            <span *ngIf="hasRequiredError('LastName')" class="error-message">Last Name is
+                            <span *ngIf="hasRequiredError('lastName')" class="error-message">Last Name is
                                    required</span>
-                            <span *ngIf="hasPatternError('LastName')" class="error-message">Name can only contain
+                            <span *ngIf="hasPatternError('lastName')" class="error-message">Name can only contain
                                    characters Aa-Zz 0-9 - ' .</span>
                      </div>
                      <div class="form-group">
@@ -39,16 +39,16 @@
                               </select>
                             </div>
                      <div class="form-group">
-                            <label class="sr-only" for="Email">Email</label>
-                            <input type="email" formControlName="Email" class="form-control" id="Email"
+                            <label class="sr-only" for="email">Email</label>
+                            <input type="email" formControlName="email" class="form-control" id="email"
                                    placeholder="Email" autocomplete="off" />
                             <span *ngIf="hasEmailError()" class="error-message">Please enter a valid email</span>
                      </div>
                      <div class="form-group">
-                            <label class="sr-only" for="Phone">Phone Number</label>
-                            <input type="text" formControlName="Phone" class="form-control" id="Phone"
+                            <label class="sr-only" for="phone">Phone Number</label>
+                            <input type="text" formControlName="phone" class="form-control" id="phone"
                                    placeholder="Phone Number" autocomplete="off" />
-                            <span *ngIf="hasPatternError('Phone')" class="error-message">Phone can only contain 20
+                            <span *ngIf="hasPatternError('phone')" class="error-message">Phone can only contain 20
                                    numbers or "-" chars (no spaces)</span>
                      </div>
 
@@ -56,15 +56,15 @@
                      <div class="form-group">
                             <label class="sr-only" for="aadharCardNo">Aadhar Card No</label>
                             <input type="text" formControlName="aadharCardNo" class="form-control" id="aadharCardNo"
-                                   placeholder="Aadhar Card No" autocomplete="off" />
+                                   placeholder="Aadhar Card No"/>
                             <span *ngIf="hasPatternError('aadharCardNo')" class="error-message">Aadhar no can only contain 16
                                    numbers</span>
                      </div>
                      <div class="form-group">
-                            <label class="sr-only" for="Password">Password</label>
-                            <input type="password" formControlName="Password" class="form-control" id="Password"
+                            <label class="sr-only" for="password">Password</label>
+                            <input type="password" formControlName="password" class="form-control" id="password"
                                    placeholder="Password" autocomplete="off" />
-                            <span *ngIf="hasTextError('Password')" class="error-message">Password is required</span>
+                            <span *ngIf="hasTextError('password')" class="error-message">Password is required</span>
                      </div>
                      <div class="form-group">
                             <label class="sr-only" for="ConfirmPassword">Confirm Password</label>
