@@ -1,14 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
-
-import { from } from 'rxjs';
 import { FormErrorService } from 'src/app/shared/services/form-error/form-error.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Customer } from 'src/app/shared/models/Customer';
 import { AppConfig, applicationConfiguration } from 'src/app/config/app.config';
-import { ToastrService } from 'ngx-toastr';
 import { RegexService } from 'src/app/shared/services/regex/regex.service';
-import { AppMatchFieldsValidator } from 'src/app/shared/validators/match-fields.service';
+import { AppMatchFieldsValidator } from '@app-maidportal/shared/validators/match-fields/match-fields.validator';
 
 
 @Component({
@@ -24,10 +21,9 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private formErrorService: FormErrorService,
     private router: Router,
-    private toastrService: ToastrService,
     private regexService: RegexService,
     @Inject(applicationConfiguration) private appConfig: AppConfig
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.setForm();
@@ -65,23 +61,23 @@ export class RegisterComponent implements OnInit {
       return this.formErrorService.displayFormErrors(this.form);
     }
 
-    const me = <Customer>this.form.value;
+    const me = this.form.value as Customer;
     me._isActive = true;
     this.router.navigate(['/login']);
-    
+
   }
   ngOnDestroy() {
     this.alive = false;
   }
- // control display of error messages
- public hasRequiredError = (controlName: string): boolean =>
- this.formErrorService.hasRequiredError(controlName, this.form);
-public hasEmailError = (): boolean =>
- this.formErrorService.hasInvalidEmailError(this.form.get('Email'));
-public hasPatternError = (controlName: string) =>
- this.formErrorService.hasPatternError(controlName, this.form);
-public passwordMismatchError = (): boolean =>
- this.formErrorService.hasPasswordMismatchError(this.form);
- public noTextError = (controlName: string): boolean =>
- this.formErrorService.hasRequiredError(controlName, this.form);
+  // control display of error messages
+  public hasRequiredError = (controlName: string): boolean =>
+    this.formErrorService.hasRequiredError(controlName, this.form);
+  public hasEmailError = (): boolean =>
+    this.formErrorService.hasInvalidEmailError(this.form.get('Email'));
+  public hasPatternError = (controlName: string) =>
+    this.formErrorService.hasPatternError(controlName, this.form);
+  public passwordMismatchError = (): boolean =>
+    this.formErrorService.hasPasswordMismatchError(this.form);
+  public noTextError = (controlName: string): boolean =>
+    this.formErrorService.hasRequiredError(controlName, this.form);
 }

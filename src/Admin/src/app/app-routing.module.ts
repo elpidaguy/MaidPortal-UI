@@ -6,6 +6,10 @@ import { PrivacyPolicyComponent } from './static-pages/privacy-policy/privacy-po
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
+  {
+    path: 'maids',
+    loadChildren: './maid/maid.module#MaidModule',
+  },
   { path: 'admin', loadChildren: './admin/admin.module#AdminModule' },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   {
