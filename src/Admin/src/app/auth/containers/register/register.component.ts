@@ -6,7 +6,7 @@ import { Customer } from 'src/app/shared/models/Customer';
 import { AppConfig, applicationConfiguration } from 'src/app/config/app.config';
 import { RegexService } from 'src/app/shared/services/regex/regex.service';
 import { MasterService } from 'src/app/shared/services/master/master.service';
-import { AppMatchFieldsValidator } from '@app-maidportal/shared/validators/match-fields/match-fields.validator';
+import { AppMatchFieldsValidator } from 'src/app/shared/validators/match-fields/match-fields.validator';
 
 
 

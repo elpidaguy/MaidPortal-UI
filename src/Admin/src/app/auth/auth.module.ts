@@ -13,6 +13,7 @@ import { AppAuthService } from './services/app-auth.service';
 import { RegisterComponent } from './containers/register/register.component';
 
 
+
 @NgModule({
   declarations:
   [ForgotPasswordComponent,

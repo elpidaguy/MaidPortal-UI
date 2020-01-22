@@ -106,6 +106,7 @@ import { MaidCardTableComponent } from './components/maid-card-table/maid-card-t
     MaidCardComponent,
     MaidCardListComponent,
     MaidCardTableComponent,
+    
 
     // 3rd party UI
     FontAwesomeModule,
