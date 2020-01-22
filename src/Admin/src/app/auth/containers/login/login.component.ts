@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   form = new FormGroup({
     username: new FormControl(''),
     password: new FormControl(''),
-    userType: new FormControl('customer'),
+    userType: new FormControl(''),
   });
 
 

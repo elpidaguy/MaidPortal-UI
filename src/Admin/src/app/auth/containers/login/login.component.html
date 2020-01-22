@@ -64,13 +64,14 @@
       </div>
 
       <div class="form-group">
-
         <div>
           <label for="userTypes">User Type</label>
           <select class="form-control" formControlName="userType" id="userTypes">
+            <option value="" disabled selected>Select your option</option>
             <option *ngFor="let ut of userTypes" [value]="ut.id">{{ut.value}}</option>
           </select>
         </div>
+      </div>
         <!-- <div class="col-md-4">
           <input id="customer" type="radio" value="customer" name="userType" formControlName="userType" />
           <label for="customer"> Customer</label>
@@ -85,7 +86,7 @@
           <input id="admin" type="radio" value="admin" name="userType" formControlName="userType" />
           <label for="admin"> Admin</label>
         </div> -->
-      </div>
+      
 
       <button id="submitBtn" type="submit" [disabled]="!form.valid"
         class="btn btn-primary btn-lg btn-block">Submit</button>

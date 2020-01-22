@@ -9,6 +9,7 @@ import { AppConfig, applicationConfiguration } from 'src/app/config/app.config';
 import { ToastrService } from 'ngx-toastr';
 import { RegexService } from 'src/app/shared/services/regex/regex.service';
 import { AppMatchFieldsValidator } from 'src/app/shared/validators/match-fields.service';
+import { MasterService } from 'src/app/shared/services/master/master.service';
 
 
 @Component({
@@ -17,6 +18,7 @@ import { AppMatchFieldsValidator } from 'src/app/shared/validators/match-fields.
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+  userTypes: any = [];
   form: FormGroup;
   me: Customer;
   alive = true;
@@ -26,11 +28,16 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private toastrService: ToastrService,
     private regexService: RegexService,
+    private masterService: MasterService,
     @Inject(applicationConfiguration) private appConfig: AppConfig
     ) { }
 
   ngOnInit() {
     this.setForm();
+    this.masterService.getUserTypes().then((r) => {
+      // console.log(r);
+      this.userTypes = r;
+    });
   }
   private setForm() {
     this.form = this.formBuilder.group(
@@ -54,6 +61,16 @@ export class RegisterComponent implements OnInit {
         Phone: ['', Validators.pattern(this.regexService.Phone)],
         Password: ['', [Validators.required, Validators.minLength(8)]],
         ConfirmPassword: ['', [Validators.required, Validators.minLength(8)]],
+        userType: '',
+        gender: '',
+        //  buildingName, street, city, state, pin, country,
+        buildingName: '',
+        street: '',
+        city: '',
+        state: '',
+        pin: '',
+        country: '',
+        MaritalStatus: '',
       },
       {
         validator: AppMatchFieldsValidator('Password', 'ConfirmPassword'),
@@ -65,10 +82,9 @@ export class RegisterComponent implements OnInit {
       return this.formErrorService.displayFormErrors(this.form);
     }
 
-    const me = <Customer>this.form.value;
+    const me = this.form.value as Customer;
     me._isActive = true;
-    this.router.navigate(['/login']);
-    
+    this.router.navigate(['/login']);  
   }
   ngOnDestroy() {
     this.alive = false;
