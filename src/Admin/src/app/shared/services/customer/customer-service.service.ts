@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+
 import { Customer } from '../../models/Customer';
+import {environment} from 'src/environments/environment'
+
 
 
 @Injectable({
@@ -11,6 +13,6 @@ export class CustomerServiceService {
  customer: Customer;
   constructor(private http: HttpClient) { }
   getCustomersList() {
-    return this.http.get('http://localhost:8080/customer/getAllCustomers' );
+    return this.http.get(environment.middlewareUrl+'/customer/getAllCustomers').toPromise();
   }
 }

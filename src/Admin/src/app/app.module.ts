@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TermsAndConditionsComponent } from './static-pages/terms-and-conditions/terms-and-conditions.component';
 import { PrivacyPolicyComponent } from './static-pages/privacy-policy/privacy-policy.component';
 import { MasterService } from './shared/services/master/master.service';
+import { HttpClientModule } from '@angular/common/http';
 
 // 3rd party
 import { NgProgressModule } from '@ngx-progressbar/core';
@@ -35,6 +36,7 @@ import { NgProgressHttpModule } from '@ngx-progressbar/http';
     BrowserAnimationsModule,
     BrowserModule,
     LayoutModule,
+    HttpClientModule,
 
     /**
      * third party modules
