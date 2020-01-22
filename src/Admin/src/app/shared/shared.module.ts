@@ -40,8 +40,6 @@ import {
   NgbDropdownModule,
 } from '@ng-bootstrap/ng-bootstrap';
 import { AppStateService } from './services/app-state/app-state.service';
-import { CustomerTableComponent } from './containers/customer-table/customer-table.component';
-import { MaidTableComponent } from './containers/maid-table/maid-table.component';
 
 @NgModule({
   declarations: [
@@ -61,8 +59,6 @@ import { MaidTableComponent } from './containers/maid-table/maid-table.component
     DataUploadComponent,
     MessageBoardComponent,
     UserTableComponent,
-    CustomerTableComponent,
-    MaidTableComponent,
   ],
   imports: [
     SharedRoutingModule,

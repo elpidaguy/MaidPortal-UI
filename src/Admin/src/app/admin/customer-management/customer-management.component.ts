@@ -8,7 +8,7 @@ import { Customer } from 'src/app/shared/models/Customer';
   styleUrls: ['./customer-management.component.scss']
 })
 export class CustomerManagementComponent implements OnInit {
-customerList: Customer[];
+customerList:Customer[];
 
   constructor(private customerService: CustomerServiceService) { }
 
@@ -16,6 +16,7 @@ customerList: Customer[];
     const res = await this.customerService.getCustomersList();
     console.log(res);
     return this.customerList = (res as Customer[]);
+   
   }
 
 }
