@@ -1,0 +1,320 @@
+<section class="container mt-4">
+<div>
+    <!-- <div *ngIf="productList"> -->
+<div class="row">
+<div class="col-12">
+<nav class="breadcrumb"
+    aria-label="breadcrumb">
+ <a class="breadcrumb-item link-text"
+    [routerLink]="['/maids']">All Products</a>
+ <!-- <a *ngFor="let cat of categoryCrumbs"
+    class="breadcrumb-item link-text"
+    [queryParams]="{ category: cat.ID }"
+    [routerLink]="['/products']">{{
+  cat.Name }}</a> -->
+</nav>
+</div>
+</div>
+
+<!-- <div class="d-md-none mb-2">
+<button class="btn btn-block btn-default btn-outline-dark mb-2"
+     *ngIf="categories?.Items?.length"
+     (click)="openCategoryModal()">Select Category</button>
+<div class="col-xs-6">
+<div (click)="refineByFavorites()">
+ <label>Refine By</label>
+ <button class="btn btn-block btn-default btn-outline-dark mb-2"
+         for="favorite">
+   <shared-toggle-favorite [favorite]="hasFavoriteProductsFilter"></shared-toggle-favorite>
+   My Favorites
+ </button>
+</div>
+</div>
+</div> -->
+
+<div class="row">
+<div class="col-md-4 col-lg-3 d-md-block d-sm-none d-none">
+
+
+<!-- <div class="card mb-4">
+ <div class="card-header p-3">
+   <h5 class="card-title mb-0">
+     <strong>Quick Add</strong>
+   </h5>
+ </div>
+ <div class="p-3">
+   <label>Know the Item? Add it directly to the Shopping Cart.</label>
+   <div class="form-group mb-0">
+     <div class="row">
+       <div class="col-8">
+         <b>Item</b>
+       </div>
+       <div class="col-4">
+         <b>Qty</b>
+       </div>
+     </div>
+     <form [formGroup]="quickAddForm">
+       <div class="row">
+
+         <div class="col-8">
+
+           <input formControlName="ItemID"
+                  id="typeahead-basic"
+                  [resultFormatter]="formatInputMatches"
+                  [inputFormatter]="formatInputMatches"
+                  type="text"
+                  class="form-control"
+                  [ngbTypeahead]="search" />
+         </div>
+         <div class="col-4 pl-0">
+           <input formControlName="Quantity"
+                  class="form-control"
+                  style="min-width:65px"
+                  title="Please enter a quantity greater than 0"
+                  type="number"
+                  min="0">
+         </div>
+
+       </div>
+       <div class="row">
+         <div class="pl-3 pt-2 pl-2">
+           <button [disabled]="quickAddForm.invalid"
+                   class="btn btn-primary btn-block small"
+                   type="submit"
+                   (click)="addInToCart()">
+             {{'APP.ProductList.QuickAddBtnLabel' | translate}}
+             <span class="d-md-none d-lg-inline">{{'APP.ProductList.QuickAddAddToCart' | translate}}</span>
+           </button>
+         </div>
+       </div>
+     </form>
+   </div>
+
+ </div>
+</div> -->
+
+<!-- <div class="card mb-4">
+ <div class="card-header p-3">
+   <h5 class="card-title mb-0">
+     <strong>{{'APP.ProductList.SpecialFilter' | translate}}</strong>
+   </h5>
+ </div>
+ <div class="p-3">
+   <button *ngIf="hasSpecialProductsFilter"
+           class="btn btn-block btn-default mb-4 btn-outline-dark"
+           type="button"
+           (click)="clearAllFilters()">{{'APP.ProductList.ClearSpecialFilterButton' | translate}}</button>
+
+   <div (click)="filterByPopular()">
+     <shared-toggle-popular [popular]="hasPopularProductsFilter"></shared-toggle-popular>
+     <label class="ml-2"
+            for="popular"
+            style="cursor: pointer;"> {{'APP.ProductList.PopularItemLabel' | translate}}</label>
+   </div>
+   <div (click)="filterByRecentlyViewed()">
+     <shared-toggle-recent [recentlyViewed]="hasRecentlyViewedFilter"></shared-toggle-recent>
+     <label class="ml-2"
+            for="recentlyViewed"
+            style="cursor: pointer;">
+       {{'APP.ProductList.RecentlyViewedItems' | translate}}</label>
+   </div>
+   <div (click)="filterByRecentlyAdded()">
+     <shared-toggle-recent-add [recentlyAdded]="hasRecentlyAddedFilter"></shared-toggle-recent-add>
+     <label class="ml-2"
+            for="recentlyAdded"
+            style="cursor: pointer;">
+       {{'APP.ProductList.RecentlyAddedItems' | translate}}</label>
+   </div>
+ </div>
+</div> -->
+
+
+
+<!-- <div class="card mb-4">
+ <div class="card-header p-3">
+   <h5 class="card-title mb-0">
+     <strong>{{'APP.ProductList.RefineByLabel' | translate}}</strong>
+   </h5>
+ </div>
+ <div class="p-3">
+   <button *ngIf="hasQueryParams"
+           class="btn btn-block btn-default mb-4 btn-outline-dark"
+           type="button"
+           (click)="clearAllFilters()">
+     {{'APP.ProductList.ClearAllFiltersButton' | translate}}
+   </button>
+
+   <product-facet-filter *ngIf="productList.Meta?.Facets?.length"
+                         [facetList]="productList.Meta.Facets"
+                         (facetListSelected)="changeFacets($event)"></product-facet-filter>
+   <div (click)="refineByFavorites()">
+     <shared-toggle-favorite [favorite]="hasFavoriteProductsFilter"></shared-toggle-favorite>
+     <label class="ml-2"
+            for="favorite"
+            style="cursor: pointer;"> {{'APP.ProductList.MyFavoritesLabel' | translate}}</label>
+   </div>
+ </div>
+</div> -->
+<!-- <product-category-nav *ngIf="categories?.Items?.length"
+                     [categories]="categories"
+                     (selection)="changeCategory($event)"></product-category-nav> -->
+</div>
+<div class="col-lg-9 col-md-8 ">
+<div class="row flex-wrap-reverse">
+ <div class="col-12 col-md-auto mr-auto">
+   <div class="btn-group btn-group-toggle">
+     <label class="btn btn-primary p-2"
+            style="cursor: pointer;"
+            [ngClass]="{'active': currentDisplay == 'List'}">
+       <input [(ngModel)]="currentDisplay"
+              ng
+              type="radio"
+              name="options"
+              value="List"
+              (change)="onDisplayChange('List')"
+              autocomplete="off"
+              checked>
+       <fa-icon [icon]="faList"></fa-icon> List
+     </label>
+     <label class="btn btn-primary p-2"
+            style="cursor: pointer;"
+            [ngClass]="{'active': currentDisplay == 'Grid'}">
+       <input [(ngModel)]="currentDisplay"
+              ng
+              type="radio"
+              name="options"
+              value="Grid"
+              (change)="onDisplayChange('Grid')"
+              autocomplete="off"
+              checked>
+       <fa-icon [icon]="faTh"></fa-icon> Grid
+     </label>
+     <label class="btn btn-primary p-2"
+            style="cursor: pointer;"
+            [ngClass]="{'active': currentDisplay == 'Table'}">
+       <input [(ngModel)]="currentDisplay"
+              ng
+              type="radio"
+              name="options"
+              value="Table"
+              (change)="onDisplayChange('Table')"
+              autocomplete="off"
+              checked>
+       <fa-icon [icon]="faAlignJustify"></fa-icon> Table
+     </label>
+   </div>
+ </div>
+ <div class="col-12 col-md-auto mr-auto ">
+   <div class="m-0 mt-1 text-center">
+     <span *ngIf="productList.Meta.TotalPages > 1">
+       {{ ((productList.Meta.Page - 1) * productList.Meta.PageSize) + 1 }} -
+       {{(productList.Meta.TotalCount) < (productList.Meta.Page * productList.Meta.PageSize)? productList.Meta.TotalCount: (productList.Meta.Page * productList.Meta.PageSize)  }}
+       of
+     </span>{{productList.Meta.TotalCount}} Results
+   </div>
+ </div>
+ <div class="col-12 d-md-none mb-2">
+   <button *ngIf="hasQueryParams"
+           class="btn btn-block btn-default btn-outline-dark mb-2"
+           type="button"
+           (click)="clearAllFilters()">Clear All Filters</button>
+ </div>
+ <!-- <div class="col-12 col-md-auto ">
+   <display-filter [displayStrategy]="displayPageSize"
+                   (displayFilterChange)="changeDisplayFilter($event)">
+   </display-filter>
+ </div> -->
+ <!-- <div class="col-12 col-md-auto ">
+   <product-sort-filter [sortStrategy]="activatedRoute.queryParams.sortBy"
+                        (sortStrategyChange)="changeSortStrategy($event)"></product-sort-filter>
+ </div> -->
+</div>
+<div *ngIf="show">
+ <div class="card"
+      *ngIf="productList.Items.length === 0">
+   <b class="card-body text-center">No Products Found</b>
+ </div>
+
+ <div *ngIf="productList.Items.length > 0">
+   <div *ngIf="currentDisplay === 'Grid'"
+        class="product-list-grid row align-items-stretch">
+
+        <app-maid-card>
+
+        </app-maid-card>
+     <!-- <archway-product-product-card *ngFor="let product of productList.Items"
+                                   [product]="product"
+                                   [emailNotificationExists]="(emailNotificationItemsMap.get(product.ID)!=undefined)? true:false"
+                                   [favorite]="favoriteProductsService.isFavorite(product)"
+                                   (setFavorite)="favoriteProductsService.setFavoriteValue($event, product)"
+                                   class="col-sm-6 col-md-4 d-flex"
+                                   (addedToCart)="addToCart($event)"
+                                   [allocationQty]="(myMap.get(product.ID)!=undefined)? myMap.get(product.ID):'NA'"
+                                   (setEmailNotification)="changeEmailNotification($event)">
+     </archway-product-product-card> -->
+   </div>
+   <div *ngIf="currentDisplay === 'List'"
+        class="product-list-grid row align-items-stretch listView">
+
+        <app-maid-card-list></app-maid-card-list>
+
+        <!-- <product-card-list *ngFor="let product of productList.Items"
+                        [product]="product"
+                        [favorite]="favoriteProductsService.isFavorite(product)"
+                        (setFavorite)="favoriteProductsService.setFavoriteValue($event, product)"
+                        class="col-sm-12 col-md-12 col-xl-12 d-flex"
+                        (addedToCart)="addToCart($event)"
+                        [allocationQty]="(myMap.get(product.ID)!=undefined)? myMap.get(product.ID):'NA'"
+                        (setStockNotification)="stockNotificationService.setStockNotificationValue($event, product)">
+     </product-card-list> -->
+   </div>
+   <div *ngIf="currentDisplay === 'Table'"
+        class="product-list-grid  align-items-stretch listView">
+     <div class="row">
+       <div class="col-1">
+         <b>Image</b>
+       </div>
+       <div class="col-3 d-none d-sm-block">
+         <b> Id </b>
+       </div>
+       <div class="col-4">
+         <b> Name</b>
+       </div>
+       <div class="col-1">
+         <b>Price</b>
+       </div>
+       <div class="col-3">
+         <b>Qty</b>
+       </div>
+     </div>
+     <hr>
+     <app-maid-card-table></app-maid-card-table>
+     <!-- <product-card-table class="w-100"
+                         *ngFor="let product of productList.Items"
+                         [product]="product"
+                         [favorite]="favoriteProductsService.isFavorite(product)"
+                         (setFavorite)="favoriteProductsService.setFavoriteValue($event, product)"
+                         (addedToCart)="addToCart($event)">
+     </product-card-table> -->
+   </div>
+   <ngb-pagination *ngIf="productList.Meta.TotalPages > 1"
+                   maxSize="10"
+                   class="d-flex justify-content-center"
+                   [collectionSize]="productList.Meta.TotalCount"
+                   [pageSize]="productList.Meta.PageSize"
+                   [(page)]="productList.Meta.Page"
+                   (pageChange)="changePage($event)"></ngb-pagination>
+ </div>
+
+</div>
+
+</div>
+</div>
+<!-- <shared-modal id="{{ createModalID }}"
+         modalTitle="{{'APP.ProductList.SelectCategoryButton' | translate}}">
+<product-category-nav *ngIf="categories?.Items?.length"
+                   [categories]="categories"
+                   (selection)="changeCategory($event)"></product-category-nav>
+</shared-modal> -->
+</div>
+</section>

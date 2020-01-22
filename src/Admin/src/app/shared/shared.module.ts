@@ -40,6 +40,9 @@ import {
   NgbDropdownModule,
 } from '@ng-bootstrap/ng-bootstrap';
 import { AppStateService } from './services/app-state/app-state.service';
+import { MaidCardComponent } from './components/maid-card/maid-card.component';
+import { MaidCardListComponent } from './components/maid-card-list/maid-card-list.component';
+import { MaidCardTableComponent } from './components/maid-card-table/maid-card-table.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +62,9 @@ import { AppStateService } from './services/app-state/app-state.service';
     DataUploadComponent,
     MessageBoardComponent,
     UserTableComponent,
+    MaidCardComponent,
+    MaidCardListComponent,
+    MaidCardTableComponent,
   ],
   imports: [
     SharedRoutingModule,
@@ -94,6 +100,13 @@ import { AppStateService } from './services/app-state/app-state.service';
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
+
+    // maid portal
+
+    MaidCardComponent,
+    MaidCardListComponent,
+    MaidCardTableComponent,
+
     // 3rd party UI
     FontAwesomeModule,
 

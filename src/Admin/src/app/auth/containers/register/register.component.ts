@@ -1,15 +1,13 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
-
-import { from } from 'rxjs';
 import { FormErrorService } from 'src/app/shared/services/form-error/form-error.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Customer } from 'src/app/shared/models/Customer';
 import { AppConfig, applicationConfiguration } from 'src/app/config/app.config';
-import { ToastrService } from 'ngx-toastr';
 import { RegexService } from 'src/app/shared/services/regex/regex.service';
-import { AppMatchFieldsValidator } from 'src/app/shared/validators/match-fields.service';
 import { MasterService } from 'src/app/shared/services/master/master.service';
+import { AppMatchFieldsValidator } from '@app-maidportal/shared/validators/match-fields/match-fields.validator';
+
 
 
 @Component({
@@ -26,7 +24,6 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private formErrorService: FormErrorService,
     private router: Router,
-    private toastrService: ToastrService,
     private regexService: RegexService,
     private masterService: MasterService,
     @Inject(applicationConfiguration) private appConfig: AppConfig
@@ -71,6 +68,7 @@ export class RegisterComponent implements OnInit {
         pin: '',
         country: '',
         MaritalStatus: '',
+        // SINGLE, MARRIED, WIDOWED
       },
       {
         validator: AppMatchFieldsValidator('Password', 'ConfirmPassword'),
