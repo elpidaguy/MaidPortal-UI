@@ -1,1 +1,51 @@
-<p>address-display works!</p>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h1>Address</h1>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>AddressName</th>
+                    <th>Email</th>
+                    <th>BuildingName</th>
+                    <th>Street</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Pin</th>
+                    <th>Country</th>
+                    <th>Phone</th>
+                    <th>DateCreated</th>
+                    <th>_IsActive</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr *ngFor="let addr of address"> -->
+                    <tr>
+                    <td>{{addr.firstName}}</td>
+                    <td>{{addr.lastName}}</td>
+                    <td>{{addr.AddressName}}</td>
+                    <td>{{addr.Email}}</td>
+                    <td>{{addr.BuildingName}}</td>
+                    <td>{{addr.Street}}</td>
+                    <td>{{addr.City}}</td>
+                    <td>{{addr.State}}</td>
+                    <td>{{addr.Pin}}</td>
+                    <td>{{addr.Country}}</td>
+                    <td>{{addr.Phone}}</td>
+                    <td>{{addr.DateCreated}}</td>
+                    <td>{{addr._IsActive}}</td>
+                    <!--<td><button (click)="deleteAddress(customer.id)">Delete</button></td>
+                    <td><button (click)="updateCustomer(customer.id)">Update</button></td>-->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+  
+
+  

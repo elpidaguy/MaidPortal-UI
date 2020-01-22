@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TermsAndConditionsComponent } from './static-pages/terms-and-conditions/terms-and-conditions.component';
 import { PrivacyPolicyComponent } from './static-pages/privacy-policy/privacy-policy.component';
+import { AddressDisplayComponent } from './shared/components/address-display/address-display.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,11 @@ const routes: Routes = [
     path: 'terms-and-conditions',
     component: TermsAndConditionsComponent,
   },
+
+  
+    { path: 'address-display', component: AddressDisplayComponent}
+  
+
 
 ];
 
