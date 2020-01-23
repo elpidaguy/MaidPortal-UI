@@ -63,6 +63,8 @@ export class LoginComponent implements OnInit {
       this.appStateService.userSubject.next(response);
       this.appStateService.isLoggedIn.next(true);
       this.toastrService.success('Login Successful!');
+      console.log('inside onsubmit after login success');
+      console.log('state is '+ this.appStateService.isLoggedIn.value);
       this.router.navigateByUrl('/home');
     }).catch((error) => {
       console.log(error);
