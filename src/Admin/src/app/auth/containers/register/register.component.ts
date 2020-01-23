@@ -5,7 +5,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Customer } from 'src/app/shared/models/Customer';
 import { AppConfig, applicationConfiguration } from 'src/app/config/app.config';
 import { RegexService } from 'src/app/shared/services/regex/regex.service';
-import { AppMatchFieldsValidator } from '@app-maidportal/shared/validators/match-fields/match-fields.validator';
+import { MasterService } from 'src/app/shared/services/master/master.service';
+import { AppMatchFieldsValidator } from 'src/app/shared/validators/match-fields/match-fields.validator';
+
 
 
 @Component({
@@ -14,6 +16,7 @@ import { AppMatchFieldsValidator } from '@app-maidportal/shared/validators/match
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+  userTypes: any = [];
   form: FormGroup;
   me: Customer;
   alive = true;
@@ -22,11 +25,16 @@ export class RegisterComponent implements OnInit {
     private formErrorService: FormErrorService,
     private router: Router,
     private regexService: RegexService,
+    private masterService: MasterService,
     @Inject(applicationConfiguration) private appConfig: AppConfig
-  ) { }
+    ) { }
 
   ngOnInit() {
     this.setForm();
+    this.masterService.getUserTypes().then((r) => {
+      // console.log(r);
+      this.userTypes = r;
+    });
   }
   private setForm() {
     this.form = this.formBuilder.group(
@@ -50,6 +58,17 @@ export class RegisterComponent implements OnInit {
         Phone: ['', Validators.pattern(this.regexService.Phone)],
         Password: ['', [Validators.required, Validators.minLength(8)]],
         ConfirmPassword: ['', [Validators.required, Validators.minLength(8)]],
+        userType: '',
+        gender: '',
+        //  buildingName, street, city, state, pin, country,
+        buildingName: '',
+        street: '',
+        city: '',
+        state: '',
+        pin: '',
+        country: '',
+        MaritalStatus: '',
+        // SINGLE, MARRIED, WIDOWED
       },
       {
         validator: AppMatchFieldsValidator('Password', 'ConfirmPassword'),
@@ -63,21 +82,20 @@ export class RegisterComponent implements OnInit {
 
     const me = this.form.value as Customer;
     me._isActive = true;
-    this.router.navigate(['/login']);
-
+    this.router.navigate(['/login']);  
   }
   ngOnDestroy() {
     this.alive = false;
   }
-  // control display of error messages
-  public hasRequiredError = (controlName: string): boolean =>
-    this.formErrorService.hasRequiredError(controlName, this.form);
-  public hasEmailError = (): boolean =>
-    this.formErrorService.hasInvalidEmailError(this.form.get('Email'));
-  public hasPatternError = (controlName: string) =>
-    this.formErrorService.hasPatternError(controlName, this.form);
-  public passwordMismatchError = (): boolean =>
-    this.formErrorService.hasPasswordMismatchError(this.form);
-  public noTextError = (controlName: string): boolean =>
-    this.formErrorService.hasRequiredError(controlName, this.form);
+ // control display of error messages
+ public hasRequiredError = (controlName: string): boolean =>
+ this.formErrorService.hasRequiredError(controlName, this.form);
+public hasEmailError = (): boolean =>
+ this.formErrorService.hasInvalidEmailError(this.form.get('Email'));
+public hasPatternError = (controlName: string) =>
+ this.formErrorService.hasPatternError(controlName, this.form);
+public passwordMismatchError = (): boolean =>
+ this.formErrorService.hasPasswordMismatchError(this.form);
+ public noTextError = (controlName: string): boolean =>
+ this.formErrorService.hasRequiredError(controlName, this.form);
 }

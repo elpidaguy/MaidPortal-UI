@@ -9,7 +9,7 @@ export class RegexService {
 
   // used for FirstName, LastName, City
   get HumanName() {
-    return "^[a-zA-Z0-9-.'\\s]*$"; // only alphanumic and space . '
+    return '^[a-zA-Z0-9-.\'\\s]*$'; // only alphanumic and space . '
   }
 
   get Email() {
@@ -22,6 +22,9 @@ export class RegexService {
 
   get Date() {
     return '^[0-9]{2}-[0-9]{2}-[0-9]{4}$'; // mm-dd-yyyy, all numbers
+  }
+  get AadharCard() {
+    return '^[0-9]*$'; // only numbers allowed
   }
 
   getZip(countryCode = 'US') {

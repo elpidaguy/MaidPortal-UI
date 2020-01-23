@@ -107,6 +107,7 @@ import { MaidService } from './services/Maid/maid.service';
     MaidCardComponent,
     MaidCardListComponent,
     MaidCardTableComponent,
+    
 
     // 3rd party UI
     FontAwesomeModule,
