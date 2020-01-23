@@ -15,4 +15,7 @@ export class CustomerServiceService {
   getCustomersList() {
     return this.http.get(environment.middlewareUrl+'/customer/getAllCustomers').toPromise();
   }
+  deleteCustomer(customer:Object) {
+    return this.http.post(environment.middlewareUrl+'/admin/deleteCustomer',customer).toPromise();
+  }
 }
