@@ -8,6 +8,7 @@
       <table class="table table-striped">
         <thead>
           <tr>
+            <th>Image</th>
             <th>Firstname</th>
             <th>Lastname</th>
             <th>Email</th>
@@ -15,16 +16,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let maid of maidList | async">
-            <td> <img src="{{maid.imgUrl}}" style="height: 50px; width: 50px;"> </td> 
+          <tr *ngFor="let maid of maidList ">
+           <td> <img src="{{maid.imgUrl}}" style="height: 50px; width: 50px;"> </td> 
             <td>{{maid.firstName}}</td>
             <td>{{maid.lastName}}</td>
             <td>{{maid.email}}</td>
             <td>{{maid.phone}}</td>
             <td>
-                <button (click)="rejectMaid(maid.id)" class="btn btn-success" >Accept</button>
-                <button (click)="onRejectMaid(maid.id)" class="btn btn-danger" style="margin-left: 10px" >Reject</button>
-                <button (click)="MaidDetails(maid.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+                <button (click)="onDeleteMaid(maid)" class="btn btn-success" >Delete</button>
+                <button (click)="onUpdateMaid(maid)" class="btn btn-danger" style="margin-left: 10px" >Update</button> 
             </td>
           </tr>
         </tbody>

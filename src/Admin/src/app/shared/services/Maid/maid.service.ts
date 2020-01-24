@@ -1,9 +1,27 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import {environment} from 'src/environments/environment'
+import { Maid } from '../../models/Maid';
 
-@Injectable()
+@Injectable({
+  providedIn:'root'
+})
 export class MaidService {
+maid:Maid
+  constructor(private http:HttpClient) { }
 
-  constructor() { }
+  getMaidsList(){
+   // return this.http.get(environment.middlewareUrl+'/maid/getAllMaids').toPromise();
+   return this.http.get(environment.middlewareUrl+'/maid/getAllMaidList').toPromise();
+  }
+  deleteMaid(maid:Object) {
+    return this.http.post(environment.middlewareUrl+'/admin/deleteMaid',maid).toPromise();
+  }
+  // onUpdateMaid(maid){
+    
+  // }
+
+  
 
   getAllMaids() {
     const listMaids = new Promise((resolve) => {
