@@ -37,6 +37,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(this.appStateService.isLoggedIn.value) {
+      this.router.navigateByUrl('/home');
+    }
 
     this.masterService.getUserTypes().then((r) => {
       // console.log(r);
