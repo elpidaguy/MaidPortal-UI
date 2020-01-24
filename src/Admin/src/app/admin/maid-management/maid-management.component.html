@@ -13,6 +13,7 @@
             <th>Lastname</th>
             <th>Email</th>
             <th>Actions</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
@@ -23,8 +24,12 @@
             <td>{{maid.email}}</td>
             <td>{{maid.phone}}</td>
             <td>
+            <p>   
+             {{(maid._isActive)?"Active":"InActive"}}<p> 
+            </td>
+            <td>
                 <button (click)="onDeleteMaid(maid)" class="btn btn-success" >Delete</button>
-                <button (click)="onUpdateMaid(maid)" class="btn btn-danger" style="margin-left: 10px" >Update</button> 
+                <button (click)="onUpdateMaid(maid)" class="btn btn-danger" style="margin-left: 10px" >Update</button>
             </td>
           </tr>
         </tbody>
