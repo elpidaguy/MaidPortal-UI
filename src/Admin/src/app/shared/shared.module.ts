@@ -44,6 +44,7 @@ import { MaidCardComponent } from './components/maid-card/maid-card.component';
 import { MaidCardListComponent } from './components/maid-card-list/maid-card-list.component';
 import { MaidCardTableComponent } from './components/maid-card-table/maid-card-table.component';
 import { MaidService } from './services/Maid/maid.service';
+import { ModalService } from './services/modal/modal.service';
 
 @NgModule({
   declarations: [
@@ -107,7 +108,7 @@ import { MaidService } from './services/Maid/maid.service';
     MaidCardComponent,
     MaidCardListComponent,
     MaidCardTableComponent,
-    
+    ModalComponent,
 
     // 3rd party UI
     FontAwesomeModule,
@@ -133,6 +134,7 @@ export class SharedModule {
       providers: [
         AppStateService,
         MaidService,
+        ModalService,
         { provide: applicationConfiguration, useValue: maidAppConfig },
       ],
     };
