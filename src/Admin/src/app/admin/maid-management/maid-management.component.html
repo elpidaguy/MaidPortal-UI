@@ -15,8 +15,8 @@
             <th>Status</th>
           </tr>
         </thead>
-        <tbody *ngIf="(maidList | async)">
-          <tr *ngFor="let maid of maidList | async">
+        <tbody *ngIf="maidList">
+          <tr *ngFor="let maid of maidList">
             <td> <img src="{{maid.imgUrl}}" style="height: 50px; width: 50px;"> </td>
             <td>{{maid.firstName}}</td>
             <td>{{maid.lastName}}</td>
@@ -32,8 +32,12 @@
             </td>
           </tr>
         </tbody>
-        <tbody *ngIf="!(maidList | async)">
-          <div class="alert alert-info">No Maid Available</div>
+        <tbody *ngIf="!maidList">
+          <tr>
+            <td colspan="6">
+              <div class="alert alert-info">No Maid Available!!!</div>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>

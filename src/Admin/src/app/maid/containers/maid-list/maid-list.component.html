@@ -1,34 +1,12 @@
 <section class="container mt-4" *ngIf="maidList">
   <div>
-    <!-- <div *ngIf="productList"> -->
     <div class="row" *ngIf="maidList">
       <div class="col-12">
         <nav class="breadcrumb" aria-label="breadcrumb">
           <a class="breadcrumb-item link-text" [routerLink]="['/maids']">All Maids</a>
-          <!-- <a *ngFor="let cat of categoryCrumbs"
-    class="breadcrumb-item link-text"
-    [queryParams]="{ category: cat.ID }"
-    [routerLink]="['/products']">{{
-  cat.Name }}</a> -->
         </nav>
       </div>
     </div>
-
-    <!-- <div class="d-md-none mb-2">
-<button class="btn btn-block btn-default btn-outline-dark mb-2"
-     *ngIf="categories?.Items?.length"
-     (click)="openCategoryModal()">Select Category</button>
-<div class="col-xs-6">
-<div (click)="refineByFavorites()">
- <label>Refine By</label>
- <button class="btn btn-block btn-default btn-outline-dark mb-2"
-         for="favorite">
-   <shared-toggle-favorite [favorite]="hasFavoriteProductsFilter"></shared-toggle-favorite>
-   My Favorites
- </button>
-</div>
-</div>
-</div> -->
 
     <div class="row">
       <div class="col-md-4 col-lg-3 d-md-block d-sm-none d-none">
@@ -43,20 +21,12 @@
           <div class="p-3">
             <label>Know Maid? Add it directly to the Shopping Cart.</label>
             <div class="form-group mb-0">
-              <!-- <div class="row">
-                <div class="col-8">
-                  <b>Maid</b>
-                </div>
-              </div> -->
               <form>
-                <!-- <form [formGroup]="quickAddForm"> -->
                 <div>
-
                   <input id="typeahead-basic" type="text" class="form-control" />
 
                   <!-- <input formControlName="ItemID" id="typeahead-basic" [resultFormatter]="formatInputMatches"
                       [inputFormatter]="formatInputMatches" type="text" class="form-control" [ngbTypeahead]="search" /> -->
-
                 </div>
                 <div class="row">
                   <div class="pl-3 pt-2 pl-2">
@@ -193,13 +163,13 @@
         <div *ngIf="show">
 
           <br>
-          <div class="card" *ngIf="maidList?.Items?.length === 0">
+          <div class="card" *ngIf="maidList?.items?.length === 0">
             <b class="card-body text-center">No Maids Found</b>
           </div>
-          <div *ngIf="maidList?.Items?.length > 0">
+          <div *ngIf="maidList?.items?.length > 0">
             <div *ngIf="currentDisplay === 'Grid'" class="product-list-grid row align-items-stretch">
 
-              <app-maid-card *ngFor="let maid of maidList.Items" [maid]="maid" class="col-sm-6 col-md-4 d-flex">
+              <app-maid-card *ngFor="let maid of maidList.items" [maid]="maid" class="col-sm-6 col-md-4 d-flex">
 
               </app-maid-card>
               <!-- <archway-product-product-card *ngFor="let product of productList.Items"
@@ -215,7 +185,7 @@
             </div>
             <div *ngIf="currentDisplay === 'List'" class="product-list-grid row align-items-stretch listView">
 
-              <app-maid-card-list *ngFor="let maid of maidList.Items" [maid]="maid"
+              <app-maid-card-list *ngFor="let maid of maidList.items" [maid]="maid"
                 class="col-sm-12 col-md-12 col-xl-12 d-flex"></app-maid-card-list>
 
               <!-- <product-card-list *ngFor="let product of productList.Items"
@@ -247,7 +217,7 @@
                 </div>
               </div>
               <hr>
-              <app-maid-card-table *ngFor="let maid of maidList.Items" [maid]="maid"></app-maid-card-table>
+              <app-maid-card-table *ngFor="let maid of maidList.items" [maid]="maid"></app-maid-card-table>
               <!-- <product-card-table class="w-100"
                          *ngFor="let product of productList.Items"
                          [product]="product"
@@ -256,9 +226,9 @@
                          (addedToCart)="addToCart($event)">
      </product-card-table> -->
             </div>
-            <ngb-pagination *ngIf="maidList.Meta.TotalPages > 1" maxSize="10" class="d-flex justify-content-center"
-              [collectionSize]="maidList.Meta.TotalCount" [pageSize]="maidList.Meta.PageSize"
-              [(page)]="maidList.Meta.Page" (pageChange)="changePage($event)"></ngb-pagination>
+            <ngb-pagination *ngIf="maidList.meta.totalPages > 1" maxSize="10" class="d-flex justify-content-center"
+              [collectionSize]="maidList.meta.totalCount" [pageSize]="maidList.meta.pageSize"
+              [(page)]="maidList.meta.page" (pageChange)="changePage($event)"></ngb-pagination>
           </div>
 
         </div>

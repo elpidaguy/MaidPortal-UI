@@ -1,8 +1,4 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MasterService } from 'src/app/shared/services/master/master.service';
-import { Router } from '@angular/router';
-import { AppConfig } from 'src/app/config/app.config';
-import { isNgTemplate } from '@angular/compiler';
 import { MaidService } from '@app-maidportal/shared/services/Maid/maid.service';
 import { Maid } from '@app-maidportal/shared/models/Maid';
 
@@ -13,25 +9,22 @@ import { Maid } from '@app-maidportal/shared/models/Maid';
 })
 export class MaidManagementComponent implements OnInit {
   maidList: Maid[];
+  // maidList$: Maid[];
 
   constructor(
-    private maidService:MaidService,
-    private router: Router,
-    private master:MasterService
-    // @Inject(applicationConfiguration) private appConfig: AppConfig
+    private maidService: MaidService,
   ) { }
 
   async ngOnInit() {
-     //this.maidList = this.maidService.getMaidsList();
-     const res = await this.maidService.getMaidsList();
+    const res = await this.maidService.getMaidsList();
     console.log(res);
     return this.maidList = (res as Maid[]);
   }
 
-  onDeleteMaid(maidList: any){
-   
-   return this.maidService.deleteMaid(maidList); 
- }
+  onDeleteMaid(maidList: any) {
+
+    return this.maidService.deleteMaid(maidList);
+  }
 
   onReload() {
 

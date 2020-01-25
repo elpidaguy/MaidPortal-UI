@@ -59,9 +59,9 @@
               <a class="dropdown-item nav-link" routerLink="/admin/maid-management">
                 Maid Management
               </a>
-              <a class="dropdown-item nav-link" routerLink="/">
+              <!-- <a class="dropdown-item nav-link" routerLink="/">
                 Salary Management
-              </a>
+              </a> -->
               <a class="dropdown-item nav-link" routerLink="/">
                 Subscription Management
               </a>
@@ -90,9 +90,6 @@
      
             <button class="dropdown-item" routerLinkActive="active" routerLink="/profile/addresses">
               <small>Address</small>
-            </button>
-            <button *ngIf="showHelp" class="dropdown-item" routerLinkActive="active" routerLink="help">
-              <small>Help</small>
             </button>
             <button class="dropdown-item" (click)="logout()" href="/login">
               <fa-icon [icon]="faSignOutAlt"></fa-icon> <small>Logout</small>
