@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(this.appStateService.isLoggedIn.value) {
+    if (this.appStateService.isLoggedIn.value) {
       this.router.navigateByUrl('/home');
     }
 
@@ -65,9 +65,9 @@ export class LoginComponent implements OnInit {
       }
       this.appStateService.userSubject.next(response);
       this.appStateService.isLoggedIn.next(true);
-      this.toastrService.success('Login Successful!');
+      this.toastrService.success('Login Successful!', '', {timeOut: 1000});
       console.log('inside onsubmit after login success');
-      console.log('state is '+ this.appStateService.isLoggedIn.value);
+      console.log('state is ' + this.appStateService.isLoggedIn.value);
       this.router.navigateByUrl('/home');
     }).catch((error) => {
       console.log(error);
