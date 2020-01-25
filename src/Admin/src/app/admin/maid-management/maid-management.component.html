@@ -7,10 +7,12 @@
       <table class="table table-hover table-bordered table-striped">
         <thead class="bg-primary text-white">
           <tr>
+            <th>Image</th>
             <th>Firstname</th>
             <th>Lastname</th>
             <th>Email</th>
             <th>Actions</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody *ngIf="(maidList | async)">
@@ -21,9 +23,12 @@
             <td>{{maid.email}}</td>
             <td>{{maid.phone}}</td>
             <td>
-              <button (click)="rejectMaid(maid.id)" class="btn btn-success">Accept</button>
-              <button (click)="onRejectMaid(maid.id)" class="btn btn-danger" style="margin-left: 10px">Reject</button>
-              <button (click)="MaidDetails(maid.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+            <p>   
+             {{(maid._isActive)?"Active":"InActive"}}<p> 
+            </td>
+            <td>
+                <button (click)="onDeleteMaid(maid)" class="btn btn-success" >Delete</button>
+                <button (click)="onUpdateMaid(maid)" class="btn btn-danger" style="margin-left: 10px" >Update</button>
             </td>
           </tr>
         </tbody>

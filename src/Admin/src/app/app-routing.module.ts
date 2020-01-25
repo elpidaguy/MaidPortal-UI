@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { TermsAndConditionsComponent } from './static-pages/terms-and-conditions/terms-and-conditions.component';
 import { PrivacyPolicyComponent } from './static-pages/privacy-policy/privacy-policy.component';
 import { AddressDisplayComponent } from './shared/components/address-display/address-display.component';
-import { MaidListComponent } from './maid';
+import { AuthGuard } from './auth/auth.guard';
 
 
 const routes: Routes = [
@@ -11,6 +11,7 @@ const routes: Routes = [
   {
     path: 'maids',
     loadChildren: './maid/maid.module#MaidModule',
+    canActivate: [AuthGuard],
   },
   { path: 'admin', loadChildren: './admin/admin.module#AdminModule' },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },

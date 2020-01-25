@@ -3,6 +3,7 @@ import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AppStateService } from 'src/app/shared/services/app-state/app-state.service';
 import { applicationConfiguration, AppConfig } from 'src/app/config/app.config';
+import { tap, delay } from 'rxjs/operators';
 
 import { Router } from '@angular/router';
 @Injectable({
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 export class AppAuthService {
 
   userType = '';
+  
 
   constructor(
     private http: HttpClient,
@@ -21,7 +23,6 @@ export class AppAuthService {
 
   login(user, userType) {
     userType === 'customer' ? this.userType = 'customer' : this.userType = 'maid';
-
     const url = `${this.appConfig.middlewareUrl}/${this.userType}/login`;
     return this.http.post(url, user).toPromise();
   }
