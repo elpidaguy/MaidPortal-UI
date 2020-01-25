@@ -6,8 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { CustomerManagementComponent } from './customer-management/customer-management.component';
 import { MaidManagementComponent } from './maid-management/maid-management.component';
 
-
-
 @NgModule({
   declarations: [CustomerManagementComponent, MaidManagementComponent],
   imports: [

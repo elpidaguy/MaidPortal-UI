@@ -1,27 +1,31 @@
+<section class="container">
 
-<div class="panel panel-default">
-  <div class="panel-heading">
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
       <h1>Customer</h1>
-  </div>
-  <div class="panel-body">
+    </div>
+    <div class="panel-body">
       <table class="table table-striped table-bordered">
-          <thead>
-              <tr>
-                  <th>Firstname</th>
-                  <th>Lastname</th>
-                  <th>Email</th>
-                  <th colspan="2">Actions</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr *ngFor="let customer of customerList">
-                  <td>{{customer.firstName}}</td>
-                  <td>{{customer.lastName}}</td>
-                  <td>{{customer.email}}</td>
-                  <td><button (click)="deleteCustomer(customer)">Delete</button></td>
-                  <td><button (click)="updateCustomer(customer.id)">Update</button></td>
-              </tr>
-          </tbody>
+        <thead>
+          <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th colspan="2">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of customerList">
+            <td>{{customer.firstName}}</td>
+            <td>{{customer.lastName}}</td>
+            <td>{{customer.email}}</td>
+            <td colspan="2"><button class="btn btn-danger btn-sm m-1" (click)="deleteCustomer(customer)">Delete</button>
+
+              <button class="btn btn-success btn-sm m-1" (click)="updateCustomer(customer.id)">Edit</button></td>
+          </tr>
+        </tbody>
       </table>
+    </div>
   </div>
-</div>
+</section>

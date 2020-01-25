@@ -1,28 +1,27 @@
-
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-    </div>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
   </div>
+</div>
 
 
-  <div *ngIf="announcements?.length > 0">
-    <ngb-carousel>
-      <ng-template ngbSlide *ngFor="let announcement of announcements">
-        <div class="announcementBody">
-          <div class="carousel-caption">
-            <fa-icon class="pr-3" [icon]="faBullhorn"></fa-icon>
-            <p class="mb-1">
-              {{ announcement.title.substr(0, 90)}}<span *ngIf="announcement.title.length > 90">...</span>
-            </p>
-            <button *ngIf="announcement.title.length > 90" (click)="viewAnnouncement(announcement.title)"
-              class="btn btn-sm text-white btn-primary">View More</button>
-          </div>
+<div *ngIf="announcements?.length > 0">
+  <ngb-carousel>
+    <ng-template ngbSlide *ngFor="let announcement of announcements">
+      <div class="announcementBody">
+        <div class="carousel-caption">
+          <fa-icon class="pr-3" [icon]="faBullhorn"></fa-icon>
+          <p class="mb-1">
+            {{ announcement.title.substr(0, 90)}}<span *ngIf="announcement.title.length > 90">...</span>
+          </p>
+          <button *ngIf="announcement.title.length > 90" (click)="viewAnnouncement(announcement.title)"
+            class="btn btn-sm text-white btn-primary">View More</button>
         </div>
-      </ng-template>
-    </ngb-carousel>
-  </div>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</div>
 
-  <div class="container-fluid mt-4">
+<div class="container-fluid mt-4">
 
   <div style="width:80%;margin: 0 auto;" class="row" *ngIf="carouselSlides?.length > 0">
     <div class="col-md-12">
@@ -83,8 +82,7 @@
             <ul>
               <li>Orders->Sample Accountability Form</li>
               <li>
-                Submit the fully completed form to J. Knipper via email
-                (BISA@Knipper.com)
+                Email At : exabytes.js@mgial.com
               </li>
             </ul>
           </ul>
@@ -93,8 +91,9 @@
           home, shipping, mailing and storage addresses.
           <br />
           <p>
-            For the latest BI Sales Force material FAQs, please visit the Sales
-            Operations Toolbox section on the PMiNet.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus assumenda, sit enim quia illum aspernatur
+            voluptatibus a, recusandae ad placeat, similique libero. Molestiae ipsam quia doloremque at consequuntur
+            dicta odio.
           </p>
         </div>
       </div>
