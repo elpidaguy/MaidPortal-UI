@@ -2,11 +2,12 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormErrorService } from 'src/app/shared/services/form-error/form-error.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Customer } from 'src/app/shared/models/Customer';
+import { Customer, Gender, MaritalStatus } from 'src/app/shared/models/Customer';
 import { AppConfig, applicationConfiguration } from 'src/app/config/app.config';
 import { RegexService } from 'src/app/shared/services/regex/regex.service';
 import { MasterService } from 'src/app/shared/services/master/master.service';
 import { AppMatchFieldsValidator } from 'src/app/shared/validators/match-fields/match-fields.validator';
+import { RegisterServiceService } from '@app-maidportal/auth/services/register-service.service';
 
 
 
@@ -20,12 +21,16 @@ export class RegisterComponent implements OnInit {
   form: FormGroup;
   me: Customer;
   alive = true;
+  gender: Gender;
+  maritalStatus: MaritalStatus;
+  dateCreated: Date;
   constructor(
     private formBuilder: FormBuilder,
     private formErrorService: FormErrorService,
     private router: Router,
     private regexService: RegexService,
     private masterService: MasterService,
+    private registerService: RegisterServiceService,
     @Inject(applicationConfiguration) private appConfig: AppConfig
     ) { }
 
@@ -39,27 +44,27 @@ export class RegisterComponent implements OnInit {
   private setForm() {
     this.form = this.formBuilder.group(
       {
-        Username: ['', Validators.required],
-        FirstName: [
+        userName: ['', Validators.required],
+        firstName : [
           '',
           [
             Validators.required,
             Validators.pattern(this.regexService.HumanName),
           ],
         ],
-        LastName: [
+        lastName: [
           '',
           [
             Validators.required,
             Validators.pattern(this.regexService.HumanName),
           ],
         ],
-        Email: ['', [Validators.required, Validators.email]],
-        Phone: ['', Validators.pattern(this.regexService.Phone)],
-        Password: ['', [Validators.required, Validators.minLength(8)]],
-        ConfirmPassword: ['', [Validators.required, Validators.minLength(8)]],
+        email: ['', [Validators.required, Validators.email]],
+        phone: ['', Validators.pattern(this.regexService.Phone)],
+        password: ['', [Validators.required, Validators.minLength(8)]],
+        confirmPassword: ['', [Validators.required, Validators.minLength(8)]],
         userType: '',
-        gender: '',
+        gender: ['', Validators.required ],
         //  buildingName, street, city, state, pin, country,
         buildingName: '',
         street: '',
@@ -67,7 +72,7 @@ export class RegisterComponent implements OnInit {
         state: '',
         pin: '',
         country: '',
-        MaritalStatus: '',
+        maritalStatus: '',
         // SINGLE, MARRIED, WIDOWED
       },
       {
@@ -78,11 +83,13 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     if (this.form.status === 'INVALID') {
       return this.formErrorService.displayFormErrors(this.form);
+      
     }
 
     const me = this.form.value as Customer;
     me._isActive = true;
-    this.router.navigate(['/login']);  
+    this.registerService.register(me, this.form.get('userType'));
+    this.router.navigate(['/login']);
   }
   ngOnDestroy() {
     this.alive = false;
