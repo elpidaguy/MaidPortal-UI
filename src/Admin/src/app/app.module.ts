@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 // 3rd party
 import { NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpModule } from '@ngx-progressbar/http';
+import { ProfileModule } from './profile/profile.module';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { NgProgressHttpModule } from '@ngx-progressbar/http';
     BrowserModule,
     LayoutModule,
     HttpClientModule,
+    ProfileModule,
 
     /**
      * third party modules

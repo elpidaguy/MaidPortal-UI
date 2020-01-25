@@ -9,9 +9,9 @@ import { AuthGuard } from '@app-maidportal/auth/auth.guard';
 
 const routes: Routes = [
 
-  { path: 'customerList', component: CustomerManagementComponent,canActivate: [AuthGuard], },
+  { path: 'customerList', component: CustomerManagementComponent, canActivate: [AuthGuard], },
   { path: 'maid-management', component: MaidManagementComponent},
-  //{ path: 'customer-management', component: CustomerManagementComponent}
+  // { path: 'customer-management', component: CustomerManagementComponent}
 ];
 
 

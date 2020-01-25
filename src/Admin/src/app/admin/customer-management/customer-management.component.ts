@@ -15,8 +15,7 @@ customerList:Customer[];
   async ngOnInit() {
     const res = await this.customerService.getCustomersList();
     //console.log(res);
-    return this.customerList = (res as Customer[]);
-   
+    return this.customerList = (res as Customer[]);  
   }
   deleteCustomer(customerList: any){
    // console.log(customerList);
