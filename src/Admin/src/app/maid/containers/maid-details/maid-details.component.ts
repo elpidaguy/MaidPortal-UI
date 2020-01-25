@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { flatMap, tap } from 'rxjs/operators';
+import { Observable, forkJoin, of } from 'rxjs';
+import { MaidService } from '@app-maidportal/shared/services/Maid/maid.service';
+
 
 @Component({
   selector: 'app-maid-details',
@@ -7,9 +12,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MaidDetailsComponent implements OnInit {
 
-  constructor() { }
+  currentMaidID: string;
+  maid: any;
 
-  ngOnInit() {
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private maidService: MaidService
+  ) {
+    this.getMaidID();
   }
 
+  ngOnInit(): void {
+    this.maidService.getMaidById(this.currentMaidID).then((res) => {
+      this.maid = res;
+    });
+  }
+
+  private getMaidID() {
+    this.activatedRoute.params.subscribe((param) => {
+      this.currentMaidID = param.maidID;
+    });
+  }
 }

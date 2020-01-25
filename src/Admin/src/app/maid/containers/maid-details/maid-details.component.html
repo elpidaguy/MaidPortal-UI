@@ -1,1 +1,41 @@
-<p>maid-details works!</p>
+<div class="container mt-4" *ngIf="maid">
+  <div class="row mb-5">
+    <div class="col-md-6">
+      <div class="position-relative d-block">
+        <img
+          src="{{  maid?.imgUrl ? maid?.imgUrl : 'https://via.placeholder.com/500x500.png?text=Maid%20Photo%20Not%20Found' }}"
+          alt="{{maid.id}}">
+      </div>
+    </div>
+    <div class="col-md-6 bg-light">
+      <h1 class="h1 my-0">
+        {{ maid.firstName | uppercase }} {{ maid.lastName | uppercase }}
+      </h1>
+      <span class="text-muted">Id
+        : {{ maid.id }}</span>
+      <hr>
+
+      <p class="card-text text-muted" style="margin-bottom: 0rem;" *ngIf="maid?.email">
+        Email : {{maid?.email}}</p>
+      <p class="card-text text-muted" style="margin-bottom: 0rem;" *ngIf="maid?.phone">
+        Contact : {{maid?.phone}}</p>
+      <p class="card-text text-muted" style="margin-bottom: 0rem;" *ngIf="maid?.gender">
+        Gender: {{maid?.gender}}</p>
+
+      <p class="card-text text-muted" style="margin-bottom: 0rem;">
+        Expected Salary : {{maid?.salary}}
+      </p>
+      <p class="card-text text-muted" style="margin-bottom: 0rem;" *ngIf="maid?.dateCreated">
+        With Us Since: {{maid?.dateCreated | date: 'dd/MM/yyyy' }}
+      </p>
+      <p class="card-text text-muted" style="margin-bottom: 0rem;" *ngIf="maid?.maritalStatus">
+        Marital Status: {{maid?.maritalStatus}}</p>
+
+        <hr>
+
+        <button class="btn btn-block btn-primary">
+            Hire Me!
+        </button>
+    </div>
+  </div>
+</div>

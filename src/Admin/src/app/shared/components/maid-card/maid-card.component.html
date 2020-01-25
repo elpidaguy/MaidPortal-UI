@@ -1,16 +1,8 @@
 <div class="card mb-5 w-100 border-hover">
-  <!-- <div class="ribbon ribbon-top-right bg-light"
-         *ngIf="!featuredProducts()">
-      <shared-toggle-favorite *ngIf="isSetFavoriteUsed"
-                              title="Favorite"
-                              (click)="$event.stopPropagation()"
-                              [favorite]="favorite"
-                              (favoriteChanged)="setFavorite.emit($event)"></shared-toggle-favorite>
-    </div> -->
-  <img class="card-img-top img-fluid flex-shrink-0" [routerLink]="['/maids', maid.ID]" style="cursor: pointer"
+  <img class="card-img-top img-fluid flex-shrink-0" [routerLink]="['/maids', maid.id]" style="cursor: pointer"
     appFallbackImage
     src="{{ maid?.imgUrl ? maid?.imgUrl : 'https://via.placeholder.com/500x500.png?text=Maid%20Photo%20Not%20Found' }}"
-    alt="{{maid.ID}}">
+    alt="{{maid.id}}">
   <!-- <div *ngIf="IsCheck"> -->
   <div class="card-body d-flex flex-column justify-content-between bg-light">
     <div>
@@ -35,17 +27,6 @@
       <p class="card-text text-muted" style="margin-bottom: 0rem;" *ngIf="maid?.maritalStatus">
         Marital Status: {{maid?.maritalStatus}}</p>
     </div>
-    <!-- <div class="d-flex flex-wrap justify-content-center align-items-center">
-        <label for="quantity"
-               class="sr-only">{{'APP.ProductCard.QuantityLabel'| translate}}</label>
-        <archway-shared-quantity-input class="w-50"
-                                       id="quantity"
-                                       [product]="product"
-                                       (addedToCart)="addToCart($event)"
-                                       *ngIf="!featuredProducts()">
-        </archway-shared-quantity-input>
-  
-      </div> -->
   </div>
   <div class="card-footer">
     <div class="card  w-100 border-hover">

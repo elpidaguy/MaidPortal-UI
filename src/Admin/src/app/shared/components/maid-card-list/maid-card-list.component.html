@@ -1,56 +1,25 @@
 <div class="card mb-2 w-100 border-hover">
   <div class="row">
     <div class="col-3 py-3 pl-4 pr-3">
-      <!-- <div class="ribbon ribbon-top-right bg-light"
-             *ngIf="!featuredProducts()">
-          <shared-toggle-favorite *ngIf="isSetFavoriteUsed"
-                                  title="Favorite"
-                                  (click)="$event.stopPropagation()"
-                                  [favorite]="favorite"
-                                  (favoriteChanged)="setFavorite.emit($event)"></shared-toggle-favorite>
-        </div> -->
-      <!-- <div class="ribbon ribbon-top-right bg-light emailNotificationPosition"
-                  *ngIf="product?.Inventory?.QuantityAvailable <= 0">
-                  <shared-toggle-stock-notification (click)="$event.stopPropagation()" [isStockNotified]="isStockNotified"
-                      (stockNotificationChanged)="setStockNotification.emit($event)">
-                  </shared-toggle-stock-notification>
-              </div> -->
       <img class="card-img-top img-fluid flex-shrink-0 listImage" [routerLink]="['/maids', maid.id]"
         style="cursor: pointer" appFallbackImage
         src="{{  maid?.imgUrl ? maid?.imgUrl : 'https://via.placeholder.com/500x500.png?text=Maid%20Photo%20Not%20Found' }}"
-        alt="{{maid.ID}}">
+        alt="{{maid.id}}">
     </div>
     <div class="col-9 px-3 py-1">
 
       <div class="card-body d-flex flex-column justify-content-between bg-light">
         <div class="row">
           <div class="col-9">
-            <h5 class="card-title" [routerLink]="['/maids', maid.ID]" style="cursor: pointer" title="{{maid.firstName}}">
+            <h5 class="card-title" [routerLink]="['/maids', maid.id]" style="cursor: pointer"
+              title="{{maid.firstName}}">
               {{ maid.firstName }} {{maid.lastName}}</h5>
           </div>
           <div class="col-3">
             <p class="card-text">
-              <!-- <ngb-rating [rate]="product?.xp?.rating">
-                                  <ng-template let-fill="fill">
-                                      <span class="star" [class.full]="fill === 100">
-                                          <span class="half" [style.width.%]="fill">&#x2605;</span>&#x2605;
-                                      </span>
-                                  </ng-template>
-                              </ngb-rating> 
-                              <span class="ml-2" *ngIf="product?.xp?.ratingUserCount == null">6000</span>
-                              <span class="ml-2">{{product?.xp?.ratingUserCount}}</span>-->
             </p>
           </div>
         </div>
-
-
-
-
-
-
-
-
-
 
         <p class="card-text text-muted" [innerHtml]="maid.id">{{maid.id}}</p>
         <div class="row mb-2">
@@ -89,8 +58,7 @@
             <div class="d-flex flex-wrap justify-content-between align-items-center">
 
               <div>
-                <button [routerLink]="['/maids', maid.id]"
-                  class="btn btn-default btn-block btn-outline-dark">View
+                <button [routerLink]="['/maids', maid.id]" class="btn btn-default btn-block btn-outline-dark">View
                 </button>
               </div>
             </div>

@@ -29,5 +29,4 @@ export class Maid {
     // public List<Salary> salaryList; // HELPER METHOD
     // public Subscription subscription;
     // public Feedback feedback;
-    
 }

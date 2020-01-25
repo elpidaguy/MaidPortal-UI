@@ -42,18 +42,9 @@
               <a class="dropdown-item nav-link" routerLink="/maids">
                 Browse Maid
               </a>
-              <a class="dropdown-item nav-link" routerLink="/admin/massorder">
-                something here
-              </a>
             </div>
           </div>
         </li>
-
-        <!-- <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="/quick-facts-search">
-            Quick Facts Search
-          </a>
-        </li> -->
 
         <li class="nav-item nav-button">
           <div class="dropdown">
@@ -68,10 +59,10 @@
               <a class="dropdown-item nav-link" routerLink="/admin/maid-management">
                 Maid Management
               </a>
-              <a class="dropdown-item nav-link" routerLink="/admin/localconvention">
+              <a class="dropdown-item nav-link" routerLink="/">
                 Salary Management
               </a>
-              <a class="dropdown-item nav-link" routerLink="/admin/safetystock">
+              <a class="dropdown-item nav-link" routerLink="/">
                 Subscription Management
               </a>
             </div>
@@ -84,17 +75,6 @@
       </div>
       <ul class="navbar-nav" *ngIf="isLoggedIn">
         <li class="nav-item dropdown" ngbDropdown placement="bottom-right">
-          <!-- <div class="nav-link dropdown-toggle text-nowrap"
-               id="account-dropdown"
-               routerLinkActive="active"
-               ngbDropdownToggle>
-            <fa-icon [icon]="faUserCircle"></fa-icon>
-            <span class="d-none d-md-inline">
-              Account
-              <fa-icon class="ml-2"
-                       [icon]="faCaretDown"></fa-icon>
-            </span>
-          </div> -->
           <div class="nav-link text-primary dropdown-toggle text-nowrap" id="account-dropdown" routerLinkActive="active"
             ngbDropdownToggle>
             <fa-icon [icon]="faUserCircle"></fa-icon>
@@ -125,7 +105,3 @@
     </div>
   </div>
 </nav>
-<!-- <nav class="navbar navbar-expand navbar-light bg-light border-fancy shadow p-0" *ngIf="showHeader()">
-  <div class="container">
-  </div>
-</nav> -->
