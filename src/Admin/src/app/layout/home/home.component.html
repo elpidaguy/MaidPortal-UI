@@ -1,10 +1,11 @@
-<div class="jumbotron jumbotron-fluid">
+<div style="width:80%;margin: 0 auto;" class="jumbotron jumbotron-fluid">
   <div class="container">
   </div>
 </div>
 
+<br>
 
-<div *ngIf="announcements?.length > 0">
+<div style="width:80%;margin: 0 auto;" *ngIf="announcements?.length > 0">
   <ngb-carousel>
     <ng-template ngbSlide *ngFor="let announcement of announcements">
       <div class="announcementBody">
@@ -37,8 +38,8 @@
     </div>
   </div>
 
-  <div class="row" *ngIf="products?.length == 0">
-    <div class="col-md-12">
+  <div style="width:80%;margin: 0 auto;" *ngIf="products?.length == 0">
+    <!-- <div class="col-md-12"> -->
       <!-- Carousel slides can be managed in the seller application -->
       <ngb-carousel *ngIf="buyer?.xp?.carouselSlides?.length != 0">
         <ng-template ngbSlide *ngFor="let slide of buyer.xp.carouselSlides">
@@ -49,11 +50,11 @@
           </div>
         </ng-template>
       </ngb-carousel>
-    </div>
+    <!-- </div> -->
   </div>
 
   <br />
-  <div class="bg-white p-5">
+  <div style="width:80%;margin: 0 auto;" class="bg-white p-5">
     <div class="row mt-2">
       <div class="col-md-12 col-sm-12">
         <div>
