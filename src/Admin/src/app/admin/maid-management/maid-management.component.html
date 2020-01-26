@@ -1,4 +1,52 @@
-<section class="container">
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-8">
+      <h1>Maids</h1>
+    </div>
+  </div>
+  <div class="mt-4" *ngIf="maidList">
+    <shared-generic-browse [meta]="maidList?.meta" (page)="pageChanged($event)">
+     <table *ngIf="maidList?.length" class="table table-striped table-bordered mt-3">
+     <!--  <table *ngIf="maidList.items.length" class="table table-striped table-bordered mt-3">-->
+        <thead class="bg-primary text-white">
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th colspan="2">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let maid of maidList">
+            <td>{{maid.id}}</td>
+            <td>{{maid.firstName}} {{maid.lastName}}</td>
+            <td>{{maid.email}}</td>
+            <td class="text-center">
+              <fa-icon aria-hidden="true" [ngClass]="{ 'text-success': maid._isActive }" [icon]="faCircle">
+              </fa-icon>
+            </td>
+            <td colspan="2">
+              <button class="btn btn-success btn-sm m-1" (click)="onUpdateMaid(maid.id)">
+                <fa-icon [icon]="faPen"></fa-icon>
+                <span class="hidden-xs"> Edit</span>
+              </button>
+              <button class="btn btn-danger btn-sm m-1" (click)="onDeleteMaid(maid)">
+                <fa-icon [icon]="faTrash"></fa-icon>
+                <span class="hidden-xs"> Delete</span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </shared-generic-browse>
+  </div>
+</div>
+
+
+
+
+<!--<section class="container">
   <div class="panel panel-primary">
     <div class="panel-heading">
       <h2>Maid Management</h2>
@@ -43,4 +91,4 @@
     </div>
   </div>
 
-</section>
+</section>-->

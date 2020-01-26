@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { CustomerServiceService } from 'src/app/shared/services/customer/customer-service.service';
 import { Customer } from 'src/app/shared/models/Customer';
 import { faTrashAlt, faCircle, faPlusCircle, faPen } from '@fortawesome/free-solid-svg-icons';
@@ -15,9 +14,6 @@ export class CustomerManagementComponent implements OnInit {
   faCircle = faCircle;
   faPlusCircle = faPlusCircle;
   faPen = faPen;
-
-
-
 
   constructor(private customerService: CustomerServiceService) { }
 
