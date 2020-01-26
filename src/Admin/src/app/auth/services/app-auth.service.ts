@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 export class AppAuthService {
 
   userType = '';
-  
 
   constructor(
     private http: HttpClient,
@@ -21,9 +20,8 @@ export class AppAuthService {
     @Inject(applicationConfiguration) private appConfig: AppConfig
   ) { }
 
-  login(user, userType) {
-    userType === 'customer' ? this.userType = 'customer' : this.userType = 'maid';
-    const url = `${this.appConfig.middlewareUrl}/${this.userType}/login`;
+  login(user) {
+    const url = `${this.appConfig.middlewareUrl}/auth/login`;
     return this.http.post(url, user).toPromise();
   }
 

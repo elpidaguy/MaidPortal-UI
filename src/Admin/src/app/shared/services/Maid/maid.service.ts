@@ -31,6 +31,7 @@ export class MaidService {
     const url = `${this.appConfig.middlewareUrl}/maid/getAllMaids`;
     return this.http.get(url).toPromise();
   }
+  
   // getAllMaids() {
   //   const listMaids = new Promise((resolve) => {
   //     const maidList = {
