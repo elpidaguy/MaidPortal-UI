@@ -138,23 +138,22 @@
             </div>
           </div>
           <div class="col-12 col-md-auto mr-auto ">
-            <!-- <div class="m-0 mt-1 text-center">
-     <span *ngIf="productList.Meta.TotalPages > 1">
-       {{ ((productList.Meta.Page - 1) * productList.Meta.PageSize) + 1 }} -
-       {{(productList.Meta.TotalCount) < (productList.Meta.Page * productList.Meta.PageSize)? productList.Meta.TotalCount: (productList.Meta.Page * productList.Meta.PageSize)  }}
-       of
-     </span>{{productList.Meta.TotalCount}} Results
-   </div> -->
+            <div class="m-0 mt-1 text-center">
+              <span *ngIf="maidList.meta.totalPages > 1">
+                {{ ((maidList.meta.page - 1) * maidList.meta.pageSize) + 1 }} -
+                {{(maidList.meta.totalCount) < (maidList.meta.page * maidList.meta.pageSize)? maidList.meta.totalCount: (maidList.meta.page * maidList.meta.pageSize)  }}
+                of
+              </span>{{maidList.meta.totalCount}} Results
+            </div>
           </div>
           <div class="col-12 d-md-none mb-2">
             <button *ngIf="hasQueryParams" class="btn btn-block btn-default btn-outline-dark mb-2" type="button"
               (click)="clearAllFilters()">Clear All Filters</button>
           </div>
-          <!-- <div class="col-12 col-md-auto ">
-   <display-filter [displayStrategy]="displayPageSize"
-                   (displayFilterChange)="changeDisplayFilter($event)">
-   </display-filter>
- </div> -->
+          <div class="col-12 col-md-auto ">
+            <display-filter [displayStrategy]="displayPageSize" (displayFilterChange)="changeDisplayFilter($event)">
+            </display-filter>
+          </div>
           <!-- <div class="col-12 col-md-auto ">
    <product-sort-filter [sortStrategy]="activatedRoute.queryParams.sortBy"
                         (sortStrategyChange)="changeSortStrategy($event)"></product-sort-filter>

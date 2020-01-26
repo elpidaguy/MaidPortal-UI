@@ -1,0 +1,12 @@
+<form class="d-flex" [formGroup]="form">
+    <label class="pt-1 pr-1 d-none d-md-block">Display</label>
+    <div class="form-group flex-grow-1 flex-md-grow-0">
+        <label class="d-md-none mb-2">Display</label>
+        <select class="form-control " formControlName="display" (change)="displayFilterChanged()">
+            <option *ngFor="let option of dispalySizeOptions" [ngValue]="option">
+                {{ option }}
+            </option>
+        </select>
+    </div>
+
+</form>

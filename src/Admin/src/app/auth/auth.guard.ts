@@ -9,7 +9,7 @@ import { AppStateService } from '@app-maidportal/shared/services/app-state/app-s
 export class AuthGuard implements CanActivate {
 
   constructor(private stateService: AppStateService,
-              private router: Router) {}
+    private router: Router) { }
 
 
   canActivate(
@@ -19,8 +19,6 @@ export class AuthGuard implements CanActivate {
   }
   checkLogin(): boolean {
     if (this.stateService.isLoggedIn.value) {
-      console.log('inside authguard' + this.stateService.isLoggedIn);
-      console.log('state is '+ this.stateService.isLoggedIn.value);
       return true;
     }
     this.router.navigate(['/login']);

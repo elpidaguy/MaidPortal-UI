@@ -21,8 +21,9 @@ export class AppAuthService {
   ) { }
 
   login(user) {
-    const url = `${this.appConfig.middlewareUrl}/auth/login`;
-    return this.http.post(url, user).toPromise();
+    const url = `${this.appConfig.middlewareUrl}/auth/login?email=${user['email']}&password=${user['password']}&userType=${user['userType']}`;
+    // const url = `${this.appConfig.middlewareUrl}/auth/login`;
+    return this.http.post(url, {}).toPromise();
   }
 
   logout(): Observable<any> {

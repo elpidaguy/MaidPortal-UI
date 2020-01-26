@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
   faSignOutAlt = faSignOutAlt;
   user$: Observable<any> = this.appStateService.userSubject;
   isLoggedIn = false;
+  userType = '';
 
   constructor(
     private router: Router,
@@ -28,9 +29,9 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.appStateService.userSubject.subscribe((r) => {
-    //   console.log(r);
-    // });
+    this.appStateService.userType.subscribe((r) => {
+      this.userType = r;
+    });
 
     this.appStateService.isLoggedIn.subscribe((e) => {
       this.isLoggedIn = e;

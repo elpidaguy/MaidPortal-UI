@@ -5,6 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { MaidRoutingModule } from './maid-routing.module';
 import { TreeModule } from 'angular-tree-component';
 import { FormsModule } from '@angular/forms';
+import { DisplayFilterComponent } from './components/display-filter/display-filter.component';
 
 
 
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
   ],
   declarations: [
     MaidListComponent,
-    MaidDetailsComponent
+    MaidDetailsComponent,
+    DisplayFilterComponent
   ],
 })
 export class MaidModule { }

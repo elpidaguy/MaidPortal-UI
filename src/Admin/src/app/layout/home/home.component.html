@@ -15,7 +15,7 @@
             {{ announcement.title.substr(0, 90)}}<span *ngIf="announcement.title.length > 90">...</span>
           </p>
           <button *ngIf="announcement.title.length > 90" (click)="viewAnnouncement(announcement.title)"
-            class="btn btn-sm text-white btn-primary">View More</button>
+            class="btn btn-sm text-white btn-info">View More</button>
         </div>
       </div>
     </ng-template>

@@ -46,7 +46,7 @@
           </div>
         </li>
 
-        <li class="nav-item nav-button">
+        <li class="nav-item nav-button" *ngIf="userType=='ADMIN'">
           <div class="dropdown">
             <button class="dropbtn nav-link">
               Admin
@@ -78,7 +78,12 @@
           <div class="nav-link text-primary dropdown-toggle text-nowrap" id="account-dropdown" routerLinkActive="active"
             ngbDropdownToggle>
             <fa-icon [icon]="faUserCircle"></fa-icon>
-            <span class="d-none d-md-inline" style="cursor: pointer !important;">
+            <span *ngIf="userType=='ADMIN'" class="d-none d-md-inline" style="cursor: pointer !important;">
+              Hi,{{ (user$ | async)?.email }}
+              <fa-icon class="ml-2" [icon]="faCaretDown"></fa-icon>
+            </span>
+
+            <span *ngIf="userType!='ADMIN'" class="d-none d-md-inline" style="cursor: pointer !important;">
               Hi,{{ (user$ | async)?.firstName }}
               <fa-icon class="ml-2" [icon]="faCaretDown"></fa-icon>
             </span>
