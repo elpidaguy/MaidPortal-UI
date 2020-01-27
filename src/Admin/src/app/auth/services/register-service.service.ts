@@ -3,6 +3,7 @@ import { applicationConfiguration, AppConfig } from 'src/app/config/app.config';
 import { HttpClient } from '@angular/common/http';
 import { AppStateService } from '@app-maidportal/shared';
 import { Router } from '@angular/router';
+import { promise } from 'protractor';
 
 @Injectable({
   providedIn: 'root'

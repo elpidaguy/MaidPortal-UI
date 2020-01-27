@@ -12,6 +12,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { AppAuthService } from './services/app-auth.service';
 import { RegisterComponent } from './containers/register/register.component';
 import { ConfirmOtpComponent } from './containers/confirm-otp/confirm-otp.component';
+import { RegisterServiceService } from './services/register-service.service';
 
 
 
@@ -31,6 +32,7 @@ import { ConfirmOtpComponent } from './containers/confirm-otp/confirm-otp.compon
     CommonModule,
     BrowserModule
   ],
-  providers: [AppAuthService]
+  providers: [AppAuthService,
+  RegisterServiceService]
 })
 export class AuthModule { }

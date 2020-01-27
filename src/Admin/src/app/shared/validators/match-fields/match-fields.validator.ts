@@ -10,11 +10,12 @@ export function AppMatchFieldsValidator(
   return (control: AbstractControl): ValidationErrors | null => {
     const firstField = control.get(firstFieldName);
     const secondField = control.get(secondFieldName);
-
+/*
     // only validate if both fields have been touched
     if (firstField.pristine || secondField.pristine) {
       return null;
     }
+    */
     if (firstField.value === secondField.value) {
       return null;
     }

@@ -12,12 +12,12 @@ export class ProfileComponent implements OnInit {
   selectedTab: string;
   tabs: ProfileTab[];
   user$: Observable<any> = this.appStateService.userSubject;
- 
+
 
 
   constructor(
     private appStateService: AppStateService,
-  ) { 
+  ) {
     this.tabs = [
       { display: 'Details', route: ['/profile', 'details'] },
     ];
@@ -28,6 +28,9 @@ export class ProfileComponent implements OnInit {
 
   selectTab(tab: ProfileTab): void {
     this.selectedTab = tab.display;
+  }
+  onUpdate() {
+
   }
 
 }
