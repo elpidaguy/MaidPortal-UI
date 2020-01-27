@@ -6,6 +6,7 @@ import { Address } from '@app-maidportal/shared/models/Address';
   templateUrl: './address-display.component.html',
   styleUrls: ['./address-display.component.scss']
 })
+
 export class AddressDisplayComponent implements OnInit {
   address:Address[];
   addr: Address[];
@@ -13,9 +14,12 @@ export class AddressDisplayComponent implements OnInit {
   constructor(private addressService: AddressService) { }
 
   async ngOnInit() {
-    const res = await this.addressService.getAddress();
-    console.log(res);
-    return this.addr = (res as Address[]);
+    this.addressService.getAddress().then(Response=>{
+
+    }).catch()
+    {
+      
+    }
    
   }
 }
