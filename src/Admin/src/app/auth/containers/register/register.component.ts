@@ -85,10 +85,40 @@ export class RegisterComponent implements OnInit {
       return this.formErrorService.displayFormErrors(this.form);
       
     }
+    console.log(this.form.value);
+    const add = {
+      firstName: this.form.get('firstName').value,
+      lastName: this.form.get('lastName').value,
+      addressName: this.form.get('addressName').value,
+      email: this.form.get('email').value,
+      buildingName: this.form.get('buildingName').value,
+      street: this.form.get('street').value,
+      city: this.form.get('city').value,
+      state: this.form.get('state').value,
+      pin: this.form.get('pin').value,
+      country: this.form.get('country').value,
+      phone: this.form.get('phone').value,
+      dateCreated: new Date().getTime(),
+      _isActive: true
+    }
+    var cust = {
+      firstName: this.form.get('firstName').value,
+      lastName: this.form.get('lastName').value,
+      email: this.form.get('email').value,
+      phone: this.form.get('phone').value,
+      userName: this.form.get('userName').value,
+      password: this.form.get('password').value,
+      aadharCardNo: this.form.get('aadharCardNo').value,
+      dateCreated: new Date().getTime(),
+      maritalStatus: this.form.get('maritalStatus').value,
+      gender: this.form.get('gender').value,
+      _isActive: true,
+      address: add
+    }
 
-    const me = this.form.value as Customer;
-    me._isActive = true;
-    this.registerService.register(me, this.form.get('userType'));
+    //const me = this.form.value as Customer;
+    //cust._isActive = true;
+    this.registerService.register(cust, this.form.get('userType'));
     this.router.navigate(['/login']);
   }
   ngOnDestroy() {
