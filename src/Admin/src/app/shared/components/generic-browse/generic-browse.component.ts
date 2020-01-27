@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-generic-browse',
+  selector: 'shared-generic-browse',
   templateUrl: './generic-browse.component.html',
   styleUrls: ['./generic-browse.component.scss']
 })
-export class GenericBrowseComponent implements OnInit {
+export class GenericBrowseComponent<T> {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  // Information about pagination
+  @Input() meta: any;
+
+  // @Output() search = new EventEmitter<string>();
+
+  @Output() page = new EventEmitter<number>();
 
 }

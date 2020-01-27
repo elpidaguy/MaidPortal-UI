@@ -17,10 +17,12 @@ export class AppComponent {
     private appStateService: AppStateService,
   ) {
     const userData = localStorage.getItem('userData');
+    const userType = localStorage.getItem('userType');
     // console.log(JSON.parse(userData));
     if (userData) {
       this.appStateService.userSubject.next(JSON.parse(userData));
       this.appStateService.isLoggedIn.next(true);
+      this.appStateService.userType.next(JSON.parse(userType));
     }
 
     this.isLoggedIn$ = this.appStateService.isLoggedIn;

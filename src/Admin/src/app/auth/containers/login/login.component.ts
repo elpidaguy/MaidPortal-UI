@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   userTypes: any = [];
 
   form = new FormGroup({
-    username: new FormControl(''),
+    email: new FormControl(''),
     password: new FormControl(''),
     userType: new FormControl(''),
   });
@@ -49,25 +49,28 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form.value);
+    // console.log(this.form.value);
     const obj = {
-      userName: this.form.get('username').value,
+      email: this.form.get('email').value,
       password: this.form.get('password').value,
-    }
-    this.authService.login(obj, this.form.get('userType').value).then((response) => {
+      userType: this.form.get('userType').value.toString().toUpperCase(),
+    };
+
+    // console.log(obj);
+
+    this.authService.login(obj).then((response) => {
       // TODO: remove redundant code
-      const userData = localStorage.getItem('userData');
-      console.log(response);
-      if (userData) {
-        localStorage.setItem('userData', JSON.stringify(response));
-      } else {
-        localStorage.setItem('userData', JSON.stringify(response));
-      }
+      // const userData = localStorage.getItem('userData');
+      // console.log(response);
+      // if (userData) {
+      //   localStorage.setItem('userData', JSON.stringify(response));
+      localStorage.setItem('userData', JSON.stringify(response));
+      localStorage.setItem('userType', JSON.stringify(obj.userType));
       this.appStateService.userSubject.next(response);
       this.appStateService.isLoggedIn.next(true);
-      this.toastrService.success('Login Successful!', '', {timeOut: 1000});
-      console.log('inside onsubmit after login success');
-      console.log('state is ' + this.appStateService.isLoggedIn.value);
+      this.appStateService.userType.next(obj.userType);
+      this.toastrService.success('Login Successful!', '', { timeOut: 1000 });
+      // console.log('state is ' + this.appStateService.isLoggedIn.value);
       this.router.navigateByUrl('/home');
     }).catch((error) => {
       console.log(error);

@@ -1,1 +1,25 @@
-<p>generic-browse works!</p>
+<!-- <shared-search class="mt-1"
+               placeholderText="Search {{ searchPlaceholder }}..."
+               (searched)="search.emit($event)" [hidden]="hideSearch"></shared-search> -->
+<div *ngIf="meta?.totalPages > 1"
+     class="my-2 row">
+  <div class="col-12">
+    <div class="float-right">
+      {{ ((meta.page - 1) * meta.pageSize) + 1 }} - {{ meta.page * meta.pageSize }} of {{ meta?.totalCount }} results
+    </div>
+  </div>
+</div>
+<div class="table-responsive">
+  <ng-content></ng-content>
+</div>
+<div class="card bg-light p-3 mt-3 w-100 text-center"
+     *ngIf="meta?.totalPages === 0">
+  <p class="mb-0">No Records found</p>
+</div>
+<ngb-pagination *ngIf="meta?.totalPages > 1"
+                class="d-flex justify-content-center"
+                maxSize="10"
+                [collectionSize]="meta.totalCount"
+                [pageSize]="meta.pageSize"
+                [(page)]="meta.page"
+                (pageChange)="page.emit($event)"></ngb-pagination>

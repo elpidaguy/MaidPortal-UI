@@ -110,6 +110,8 @@ import { ModalService } from './services/modal/modal.service';
     MaidCardTableComponent,
     ModalComponent,
 
+    GenericBrowseComponent,
+
     // 3rd party UI
     FontAwesomeModule,
 
