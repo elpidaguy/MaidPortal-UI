@@ -9,8 +9,8 @@ export class ResetPasswordComponent implements OnInit {
   resetPasswordForm = new FormGroup({
     password: new FormControl(''),
     passwordConfirm: new FormControl('')
-    //this need has to be done yet
-    //,validator: AppMatchFieldsValidator('password', 'passwordConfirm')
+    // this need has to be done yet
+    // validator: AppMatchFieldsValidator('password', 'passwordConfirm')
   });
 
   constructor() { }
@@ -23,6 +23,6 @@ export class ResetPasswordComponent implements OnInit {
   // control visibility of password mismatch error
   protected passwordMismatchError = (): boolean =>
   false;
-    //this.formErrorService.hasPasswordMismatchError(this.resetPasswordForm);
+    // this.formErrorService.hasPasswordMismatchError(this.resetPasswordForm);
 
 }

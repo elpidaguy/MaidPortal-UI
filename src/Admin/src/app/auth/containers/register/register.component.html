@@ -7,14 +7,14 @@
      </div>
      <div class="row">
        <div class="col-lg-6 mx-auto"
-            style="max-width:400px">
+            style="max-width:1000px">
          <h3 class="text-center headline-text mb-3">Sign Up</h3>
          <form (ngSubmit)="onSubmit()"
                novalidate
-               [formGroup]="form"
+               [formGroup]="registerForm"
                name="RegisterForm">
            <div class="form-group">
-             <label 
+             <label
                     for="userName">Username</label>
              <input type="text"
                     formControlName="userName"
@@ -62,8 +62,8 @@
                 <select class="form-control" 
                 formControlName="gender" 
                 id="userTypes">
-                <option value="" disabled selected>Select your option</option>
-                  <option value="MALE" selected>Male</option>
+                  <option value="" disabled selected>Select your option</option>
+                  <option value="MALE" >Male</option>
                   <option value="FEMALE">Female</option>
                   <option value="OTHER">Other</option>
                 </select>
@@ -80,7 +80,7 @@
                        formControlName="maritalStatus" 
                        id="maritalStatus">
                        <option value="" disabled selected>Select your option</option>
-                         <option value="SINGLE" selected>Single</option>
+                         <option value="SINGLE" >Single</option>
                          <option value="MARRIED">Married</option>
                          <option value="WIDOWED">Widowed</option>
        
@@ -166,6 +166,7 @@
                                    placeholder="building Name"
                                    autofocus="true"
                                    autocomplete="off" />
+                                   <br>
                      <input type="text"
                                    formControlName="street"
                                    class="form-control"
@@ -173,6 +174,7 @@
                                    placeholder="street"
                                    autofocus="true"
                                    autocomplete="off" />
+                                   <br>
                      <input type="text"
                                    formControlName="city"
                                    class="form-control"
@@ -180,6 +182,7 @@
                                    placeholder="city"
                                    autofocus="true"
                                    autocomplete="off" />
+                                   <br>
                      <input type="text"
                                    formControlName="pin"
                                    class="form-control"
@@ -187,6 +190,7 @@
                                    placeholder="pin"
                                    autofocus="true"
                                    autocomplete="off" />
+                                   <br>
                      <input type="text"
                                    formControlName="state"
                                    class="form-control"
@@ -194,6 +198,7 @@
                                    placeholder="state"
                                    autofocus="true"
                                    autocomplete="off" />
+                                   <br>
                      <input type="text"
                                    formControlName="country"
                                    class="form-control"
