@@ -10,9 +10,13 @@ import { AppConfig, applicationConfiguration } from '@app-maidportal/config/app.
   styleUrls: ['./forgot-password.component.scss']
 })
 export class ForgotPasswordComponent implements OnInit {
-  resetEmailForm = new FormGroup({
-    email: new FormControl('')
-  });
+
+ // email: any;
+  // resetEmailForm: FormGroup ;
+   resetEmailForm = new FormGroup({
+     email: new FormControl('')
+   });
+
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
@@ -21,22 +25,45 @@ export class ForgotPasswordComponent implements OnInit {
     @Inject(applicationConfiguration) private appConfig: AppConfig
   ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.resetEmailForm = this.formBuilder.group({ email: '' });
   }
 
-  onSubmit() {
-    console.log(this.resetEmailForm.value);
-    const obj = {email : this.resetEmailForm.get('email').value};
-    this.resetPasswordService.sendMail(obj).then((response) => {
-      this.toasterService.success('OTP is sent to your Email', '', {timeOut: 1500});
-      this.router.navigateByUrl('/confirm-otp');
-    }).catch((error) => {
-      console.log(error);
-     // this.router.navigateByUrl('/confirm-otp');
-      this.toasterService.show('email send failed');
-      this.toasterService.error(error.error.text);
-    });
+   async onSubmit() {
+     // obj : any ;
+     const obj = this.resetEmailForm.get('email').value.toString();
+      // this.resetPasswordService.sendMail({
+      //   email: this.resetEmailForm.get('email').value.toString(),
+      // }).then(
+     this.resetPasswordService.sendMail(obj).then(
+        (response) => {
+          this.toasterService.success('OTP is sent', 'Success');
+          this.router.navigateByUrl('/confirm-otp');
+        }
+      ).catch(
+        (error) => {
+          console.log(error);
+          this.toasterService.error(error.error.text);
+        }
+      );
+
+
+
+   // console.log(this.resetEmailForm.value);
+  //   const obj = {
+  //     email : this.resetEmailForm.get('email').value.toString()
+  //   };
+
+  //   this.resetPasswordService.sendMail(obj).then((response) => {
+  //  // this.resetPasswordService.sendMail(this.email).then((response) => {
+  //     this.toasterService.success('', '', {timeOut: 1500});
+  //     this.router.navigateByUrl('/confirm-otp');
+  //   }).catch((error) => {
+  //     console.log(error);
+  //    // this.router.navigateByUrl('/confirm-otp');
+  //     this.toasterService.show('email send failed');
+  //     this.toasterService.error(error.error.text);
+  //   });
   }
 
 
