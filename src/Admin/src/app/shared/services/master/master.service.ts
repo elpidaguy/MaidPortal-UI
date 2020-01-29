@@ -1,31 +1,32 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AppConfig, applicationConfiguration } from '@app-maidportal/config/app.config';
 
 @Injectable()
 export class MasterService {
 
   constructor(
     private httpClient: HttpClient,
+    @Inject(applicationConfiguration) private appConfig: AppConfig
   ) { }
 
+
+  // announcement services
+
   getAnnouncements() {
-    const announcement = new Promise((resolve) => {
-      const announcements = [
-        {
-          title: 'first announcement',
-        },
-        {
-          title: 'second announcement second announcement second announcement second announcement second announcement second announcement',
-        },
-        {
-          title: 'third announcement',
-        },
-      ];
+    const url = `${this.appConfig.middlewareUrl}/announcement/getAllAnnouncement`;
+    return this.httpClient.get(url).toPromise();
+  }
 
-      resolve(announcements);
-    });
+  addAnnouncement(data: any) {
+    const url = `${this.appConfig.middlewareUrl}/announcement/addAnnouncement`;
+    return this.httpClient.post(url, data, { responseType: 'text' }).toPromise();
+  }
 
-    return announcement;
+  deleteAnnouncement(i: any) {
+    const obj = { id: i };
+    const url = `${this.appConfig.middlewareUrl}/announcement/deleteAnnouncement`;
+    return this.httpClient.post(url, obj, { responseType: 'text' }).toPromise();
   }
 
 

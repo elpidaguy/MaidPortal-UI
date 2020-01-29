@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { faPlusCircle, faTrash, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { ModalService } from '@app-maidportal/shared/services/modal/modal.service';
 import { ToastrService } from 'ngx-toastr';
+import { MasterService } from '@app-maidportal/shared/services/master/master.service';
 @Component({
   selector: 'app-message-board',
   templateUrl: './message-board.component.html',
@@ -10,7 +11,6 @@ import { ToastrService } from 'ngx-toastr';
 export class MessageBoardComponent implements OnInit {
   faPlusCircle = faPlusCircle;
   createModalID = 'CreateAnnouncementModal';
-  editModalID = 'EditAnnouncementModal';
   selectedAnnouncement: any;
   selectedIndex: number;
   showAnnouncements = false;
@@ -19,63 +19,42 @@ export class MessageBoardComponent implements OnInit {
   confirmModalID = 'messageconfirmmodal';
   messageIdToDelete: any;
   message: string;
+  announcements: any;
   constructor(
     private modalService: ModalService,
     private toastrService: ToastrService,
+    private masterService: MasterService
   ) { }
 
   ngOnInit() {
-    // this.ocBuyerService.Get(this.appConfig.buyerID).subscribe((x) => {
-    //   this.buyer = x;
-    //   this.buyer.xp = (this.buyer.xp) || [];
-    //   this.buyer.xp.announcements = (this.buyer.xp && this.buyer.xp.announcements) || [];
-    //   this.showAnnouncements = true;
-    // });
+this.loadData();
+  }
+
+  loadData(): void {
+    this.masterService.getAnnouncements().then((x) => {
+      // console.log(x);
+      this.announcements = x || [];
+      this.showAnnouncements = true;
+    });
   }
 
   openCreateModal() {
     this.modalService.open(this.createModalID);
   }
 
-  // openEditModal(index) {
-  //   this.selectedIndex = index;
-  //   this.selectedAnnouncement = this.buyer.xp.announcements[index];
-  //   this.modalService.open(this.editModalID);
-  // }
-
-  saveAnnouncements() {
-    // TODO: yet to implement
-    // const partialBuyer = {
-    //   xp: { announcements: this.buyer.xp.announcements },
-    // };
-
-    // this.ocBuyerService
-    //   .Patch(this.appConfig.buyerID, partialBuyer)
-    //   .subscribe((x) => {
-    //     this.buyer = x;
-    //   });
+  addNewAnnouncement(event) {
+    const obj = { title: event.announcement };
+    this.masterService.addAnnouncement(obj);
+    this.toastrService.success('Announcement added successfully!');
+    this.modalService.close(this.createModalID);
+    this.loadData();
   }
 
-  // addNewAnnouncement(event) {
-  //   this.buyer.xp.announcements.push({ "title": event.announcement, "order": event.order, "StartDate": event.StartDate ? new Date(event.StartDate) : null, "ExpiryDate": event.ExpiryDate ? new Date(event.ExpiryDate) : null, "UserGroups": event.UserGroups });
-  //   this.saveAnnouncements();
-  //   this.toastrService.success("Announcement added successfully!");
-  //   this.modalService.close(this.createModalID);
-  // }
-
-  // deleteAnnouncement(i) {
-  //   this.buyer.xp.announcements.splice(i, 1);
-  //   this.saveAnnouncements();
-  //   this.toastrService.success("Announcement deleted successfully!");
-  // }
-
-  // saveEditedAnnouncement(event) {
-  //   this.buyer.xp.announcements[this.selectedIndex] = { "title": event.announcement, "order": event.order, "StartDate": event.StartDate ? new Date(event.StartDate) : null, "ExpiryDate": event.ExpiryDate ? new Date(event.ExpiryDate) : null, "UserGroups": event.UserGroups };
-  //   this.saveAnnouncements();
-  //   this.toastrService.success("Announcement saved successfully!");
-  //   this.modalService.close(this.editModalID);
-
-  // }
+  deleteAnnouncement(i) {
+    this.masterService.deleteAnnouncement(i);
+    this.toastrService.success('Announcement deleted successfully!');
+    this.loadData();
+  }
 
   confirmDeleteAnnouncement(messageId: string, messageString: string) {
     this.messageIdToDelete = messageId;
@@ -83,10 +62,10 @@ export class MessageBoardComponent implements OnInit {
     this.modalService.open(this.confirmModalID);
   }
 
-  // afterconfirm(data) {
-  //   if (data === "yes") {
-  //     this.deleteAnnouncement(this.messageIdToDelete);
-  //   }
-  //   this.modalService.close(this.confirmModalID);
-  // }
+  afterconfirm(data) {
+    if (data === 'yes') {
+      this.deleteAnnouncement(this.messageIdToDelete);
+    }
+    this.modalService.close(this.confirmModalID);
+  }
 }
