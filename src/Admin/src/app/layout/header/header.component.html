@@ -39,8 +39,8 @@
               <fa-icon class="ml-2" [icon]="faCaretDown"></fa-icon>
             </button>
             <div class="dropdown-content" style="z-index:15 !important">
-              <a class="dropdown-item nav-link" routerLink="/maids">
-                Browse Maid
+              <a class="dropdown-item" routerLink="/maids">
+                <fa-icon [icon]="faUsers"></fa-icon> Browse Maid
               </a>
             </div>
           </div>
@@ -53,18 +53,24 @@
               <fa-icon class="ml-2" [icon]="faCaretDown"></fa-icon>
             </button>
             <div class="dropdown-content" style="z-index:15 !important">
-              <a class="dropdown-item nav-link" routerLink="/customerList">
-                Customer Management
+              <a class="dropdown-item" routerLink="/customerList">
+                <fa-icon [icon]="faUser"></fa-icon> Customer Management
               </a>
-              <a class="dropdown-item nav-link" routerLink="/admin/maid-management">
-                Maid Management
+              <a class="dropdown-item" routerLink="/admin/maid-management">
+                <fa-icon [icon]="faUsers"></fa-icon> Maid Management
+              </a>
+              <a class="dropdown-item " routerLink="/messageBoard">
+                <fa-icon [icon]="faEnvelope"></fa-icon> Announcement
+              </a>
+              <a class="dropdown-item " routerLink="/carouselBoard">
+                <fa-icon [icon]="faImages"></fa-icon> Carousel
               </a>
               <!-- <a class="dropdown-item nav-link" routerLink="/">
                 Salary Management
               </a> -->
-              <a class="dropdown-item nav-link" routerLink="/">
+              <!-- <a class="dropdown-item nav-link" routerLink="/">
                 Subscription Management
-              </a>
+              </a> -->
             </div>
           </div>
         </li>
@@ -90,11 +96,15 @@
           </div>
           <div class="dropdown-menu p-0" aria-labelledby="account-dropdown" ngbDropdownMenu>
             <button class="dropdown-item" routerLinkActive="active" routerLink="/profile/details">
-              <small>My Profile</small>
+              <small>
+                <fa-icon [icon]="faUser"></fa-icon> My Profile
+              </small>
             </button>
-     
+
             <button class="dropdown-item" routerLinkActive="active" routerLink="/profile/addresses">
-              <small>Address</small>
+              <small>
+                <fa-icon [icon]="faAddressCard"></fa-icon> Address
+              </small>
             </button>
             <button class="dropdown-item" (click)="logout()" href="/login">
               <fa-icon [icon]="faSignOutAlt"></fa-icon> <small>Logout</small>
