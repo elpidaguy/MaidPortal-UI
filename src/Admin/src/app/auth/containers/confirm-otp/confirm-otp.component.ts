@@ -13,7 +13,7 @@ import { timeout } from 'rxjs/operators';
 })
 export class ConfirmOtpComponent implements OnInit {
   confirmOTP = new FormGroup({
-    OTP: new FormControl('')
+    otp: new FormControl('')
   });
 constructor(
     private router: Router,
@@ -24,21 +24,20 @@ constructor(
   ) { }
 
 ngOnInit() {
-  this.confirmOTP = this.formBuilder.group({OTP : ''});
+  this.confirmOTP = this.formBuilder.group({otp : ''});
 }
 
 onSubmit() {
-  // const obj = {OTP : this.confirmOTP.get('OTP').value};
-  // this.resetPasswordService.confirmOTP(obj).then((response) => {
-  // // this.resetPasswordService.resetPassword(obj).then((response) => {
-  //   this.toasterService.success('OTP Confirmed', '', { timeOut : 1200 });
-  //   this.router.navigateByUrl('/reset-password');
-  // }).catch((error) => {
-  //   console.log(error);
-  //   // this.router.navigateByUrl('/reset-password');
-  //   this.toasterService.show('Password Reset Failed');
-  //   this.toasterService.error(error.error.text);
-  // });
+  const obj =  this.confirmOTP.get('otp').value.toString();
+  this.resetPasswordService.confirmOTP(obj).then((response) => {
+    this.toasterService.success('OTP Confirmed', '', { timeOut : 1200 });
+    this.router.navigateByUrl('/reset-password');
+  }).catch((error) => {
+    console.log(error);
+    // this.router.navigateByUrl('/reset-password');
+    this.toasterService.show('Password Reset Failed');
+    this.toasterService.error(error.error.text);
+  });
 }
 
 }

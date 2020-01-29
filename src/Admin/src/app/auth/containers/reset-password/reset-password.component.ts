@@ -44,8 +44,8 @@ export class ResetPasswordComponent implements OnInit {
   onSubmit() {
     console.log(this.resetPasswordForm.value);
     const obj = {
-      email: this.resetPasswordForm.get('email').value,
-      newPassword: this.resetPasswordForm.get('newPassword').value,
+      email: this.resetPasswordForm.get('email').value.toString(),
+      newPassword: this.resetPasswordForm.get('newPassword').value.toString(),
      // passwordConfirm: this.resetPasswordForm.get('passwordConfirm').value,
     };
 

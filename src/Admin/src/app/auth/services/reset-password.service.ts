@@ -7,7 +7,8 @@ import { applicationConfiguration, AppConfig } from '@app-maidportal/config/app.
 })
 export class ResetPasswordService {
 
-  email : any;
+  email: any;
+  otp: any;
   constructor(
     private http: HttpClient,
     @Inject(applicationConfiguration) private appConfig: AppConfig
@@ -25,8 +26,8 @@ export class ResetPasswordService {
 
    // confirmOTP(otp: string) {
     confirmOTP(otp) {
-      const url = `${this.appConfig.middlewareUrl}/email/confirmOTP?OTP=${otp}`;
-      return this.http.post(url , {}).toPromise();
+      const url = `${this.appConfig.middlewareUrl}/email/confirmOTP?otp=${otp}`;
+      return this.http.post(url , otp).toPromise();
     }
 
     resetPassword(obj) {
