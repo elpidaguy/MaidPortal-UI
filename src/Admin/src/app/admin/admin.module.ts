@@ -5,9 +5,10 @@ import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { CustomerManagementComponent } from './customer-management/customer-management.component';
 import { MaidManagementComponent } from './maid-management/maid-management.component';
+import { MaidManagementUpdateComponent } from './maid-management-update/maid-management-update.component';
 
 @NgModule({
-  declarations: [CustomerManagementComponent, MaidManagementComponent],
+  declarations: [CustomerManagementComponent, MaidManagementComponent, MaidManagementUpdateComponent],
   imports: [
     SharedModule,
     FormsModule,

@@ -2,16 +2,17 @@ import { MaidManagementComponent } from './maid-management/maid-management.compo
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-//admin componenets
+// admin componenets
 
 import { CustomerManagementComponent } from './customer-management/customer-management.component';
 import { AuthGuard } from '@app-maidportal/auth/auth.guard';
+import { MaidManagementUpdateComponent } from './maid-management-update/maid-management-update.component';
 
 const routes: Routes = [
 
   { path: 'customerList', component: CustomerManagementComponent, canActivate: [AuthGuard], },
   { path: 'maid-management', component: MaidManagementComponent},
-  // { path: 'customer-management', component: CustomerManagementComponent}
+  { path: 'maid-update/:id', component: MaidManagementUpdateComponent}
 ];
 
 
