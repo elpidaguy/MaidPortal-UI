@@ -1,7 +1,45 @@
-<h1 class="display-4">{{appConfig.appname}}</h1>
-<div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
+<!--<script src="js/addons/rating.js"></script>-->
+<div class="row">
+    <div class="col-lg-8 mx-auto" >
+        <h1 class="display-5">Update Maid</h1>
+    </div>
+</div>
+<div class="container mt-4" *ngIf="maid">
+    <div class="row mb-5">
+      <div class="col-md-6">
+        <div class="col-md text-center  ">
+             <div class="position-relative d-block">
+                     <img class="img-profile img-circle rounded-circle img-responsive center-block" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">    
+             </div> 
+            <div class="user-info ">
+                     <p> {{ maid.firstName }}  {{ maid.lastName }}    
+                    <p> {{ maid.email }} </p> 
+            </div>
+        </div> <br><br>
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" id="firstName" placeholder="firstName" autofocus="true"
+            required [(ngModel)]="maid.firstName" name="firstName" />
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" id="lastName" placeholder="lastName" autofocus="true"
+            required [(ngModel)]="maid.lastName" name="lastName" />
+        </div>
+        <div class="form-group">
+            <label for="avgRating">Average Rating</label>
+            <input type="text" class="form-control" id="avgRating" placeholder="avgRating" autofocus="true"
+            required [(ngModel)]="maid.feedback.avgRating" name="avgRating" />
+            <!--<div class="container">
+                <span id="rateMe2"  class="empty-stars"></span>
+            </div>-->
+        </div>
+       
+      </div>
+    <div [hidden]="submitted" style="width: 400px;" class="col-md-6" >
+    
+    <form (ngSubmit)="onSubmit()">
+    <!-- <div class="form-group">
         <label for="firstName">First Name</label>
         <input type="text" class="form-control" id="firstName" placeholder="firstName" autofocus="true"
         required [(ngModel)]="maid.firstName" name="firstName" />
@@ -10,7 +48,7 @@
         <label for="lastName">Last Name</label>
         <input type="text" class="form-control" id="lastName" placeholder="lastName" autofocus="true"
         required [(ngModel)]="maid.lastName" name="lastName" />
-    </div>
+    </div>-->
     <div class="form-group">
         <label for="email">Email</label>
         <input type="text" class="form-control" id="email" placeholder="email" autofocus="true"
@@ -49,13 +87,20 @@
         <option value="WIDOWED">Widowed</option>
         </select>
     </div>
-    <div class="form-group">
-        <label for="salary">salary</label>
-        <input type="number" class="form-control" id="salary" placeholder="salary" autofocus="true"
-        required [(ngModel)]="maid.salary" name="salaryList" />
+    <div class="col-lg mx-auto text-center">
+      <!-- <button class="btn btn-block btn-primary">
+            Update
+        </button>-->
+     <button type="submit" class="btn btn-success">Submit</button>
+
     </div>
-    <button type="submit" class="btn btn-success">Submit</button>
+     
   </form>
+
+</div>
+
+<div class="container mt-4" *ngIf="!maid">
+    Maid Details Not Available
 </div>
 
 
