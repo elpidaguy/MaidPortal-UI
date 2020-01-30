@@ -1,1 +1,54 @@
-<p>message-board works!</p>
+<div class="container mt-4">
+  <div *ngIf="showAnnouncements" class="row">
+    <div class="col-8">
+      <h1>Announcements</h1>
+    </div>
+    <div class="col-4">
+      <button class="btn btn-primary float-right mt-3" (click)="openCreateModal()">
+        <fa-icon [icon]="faPlusCircle"></fa-icon> New
+      </button>
+    </div>
+    <div class="col-lg-12 alert alert-warning " *ngIf="!announcements?.length">No Announcements</div>
+  </div>
+
+  <div class="row mt-4" *ngIf="announcements?.length">
+    <table class="table table-sm table-striped table-bordered table-hover">
+      <thead class="bg-primary text-white">
+        <tr>
+          <th>#</th>
+          <th>Announcement</th>
+          <th>Created On</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let announcementItem of announcements; index as i">
+          <td>{{ announcementItem.id }}</td>
+          <td><u>{{ announcementItem.title }}</u>
+          </td>
+          <td>{{ announcementItem.createdDate }}</td>
+          <td>
+            <button (click)="confirmDeleteAnnouncement(announcementItem.id, announcementItem.title)" class="btn btn-danger btn-sm">
+              <fa-icon [icon]="faTrash"></fa-icon>
+              <span class="hidden-xs"> Delete</span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+
+</div>
+
+
+<shared-modal id="{{ createModalID }}" modalTitle="Create New Announcement">
+  <app-announcement-form btnText="Create" (announcementSubmitted)="addNewAnnouncement($event)">
+  </app-announcement-form>
+</shared-modal>
+
+<shared-modal id="{{confirmModalID }}" modalTitle="Confirm Delete">
+  <confirm-action [message]="message" (afterconfirm)="afterconfirm($event)">
+  </confirm-action>
+</shared-modal>

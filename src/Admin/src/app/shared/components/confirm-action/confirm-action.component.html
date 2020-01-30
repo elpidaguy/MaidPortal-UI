@@ -1,1 +1,7 @@
-<p>confirm-action works!</p>
+<div class="popup">
+    <p [innerHTML]="message"></p>
+    <div class="text-right">
+      <button class="btn btn-primary ml-1" (click)="submit('yes');">Yes</button>
+      <button class="btn btn-cancel ml-2" (click)="submit('no');">No</button>
+    </div>
+  </div>

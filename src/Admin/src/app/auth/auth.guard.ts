@@ -9,7 +9,7 @@ import { AppStateService } from '@app-maidportal/shared/services/app-state/app-s
 export class AuthGuard implements CanActivate {
 
   constructor(private stateService: AppStateService,
-    private router: Router) { }
+              private router: Router) { }
 
 
   canActivate(

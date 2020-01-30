@@ -5,6 +5,22 @@ import { AppConfig, applicationConfiguration } from 'src/app/config/app.config';
 import { AppStateService } from 'src/app/shared/services/app-state/app-state.service';
 import { Observable } from 'rxjs';
 import { AppAuthService } from 'src/app/auth/services/app-auth.service';
+import {
+  faBoxOpen,
+  faUser,
+  faUsers,
+  faMapMarkerAlt,
+  faAddressCard,
+  faSitemap,
+  faCog,
+  faDollarSign,
+  faQuestion,
+  faBriefcase,
+  faFlag,
+  faBars,
+  faImages,
+  faEnvelope
+} from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -17,6 +33,11 @@ export class HeaderComponent implements OnInit {
   isCollapsed = false;
   faCaretDown = faCaretDown;
   faSignOutAlt = faSignOutAlt;
+  faEnvelope = faEnvelope;
+  faImages = faImages;
+  faUser = faUser;
+  faUsers = faUsers;
+  faAddressCard = faAddressCard;
   user$: Observable<any> = this.appStateService.userSubject;
   isLoggedIn = false;
   userType = '';

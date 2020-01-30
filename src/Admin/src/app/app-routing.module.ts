@@ -4,6 +4,7 @@ import { TermsAndConditionsComponent } from './static-pages/terms-and-conditions
 import { PrivacyPolicyComponent } from './static-pages/privacy-policy/privacy-policy.component';
 
 import { AuthGuard } from './auth/auth.guard';
+import { MessageBoardComponent } from './shared/containers/message-board/message-board.component';
 
 
 const routes: Routes = [
@@ -19,8 +20,13 @@ const routes: Routes = [
   {
     path: 'terms-and-conditions',
     component: TermsAndConditionsComponent,
-  }
-  
+  },
+  {
+    path: 'messageBoard', component: MessageBoardComponent
+  },
+  // {
+  //   path: 'carouselBoard', component: CarouselBoardComponent
+  // },
 
 ];
 

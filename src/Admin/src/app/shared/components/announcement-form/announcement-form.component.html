@@ -1,1 +1,19 @@
-<p>announcement-form works!</p>
+<form (ngSubmit)="submitForm()" novalidate [formGroup]="form" name="form">
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="ItemId">Announcement</label>
+      <input formControlName="announcement" id="announcement" class="form-control" type="text"
+        placeholder="Announcement" autocomplete="off" />
+      <span *ngIf="form.get('announcement').invalid && form.get('announcement').dirty"
+        class="error-message">Announcement
+        is Required</span>
+    </div>
+  </div>
+  <div class="alert alert-warning flex-row justify-content-left">
+    Note :<br>
+    <ul>
+      <li>Announcements will be visible to all Users.</li>
+    </ul>
+  </div>
+  <button type="submit" class="btn btn-primary btn-block">{{btnText}}</button>
+</form>
