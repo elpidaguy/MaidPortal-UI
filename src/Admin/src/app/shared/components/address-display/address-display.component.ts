@@ -14,11 +14,13 @@ export class AddressDisplayComponent implements OnInit {
   constructor(private addressService: AddressService) { }
 
   async ngOnInit() {
-    this.addressService.getAddress().then(response=>{
-      console.log(response);
-    }).catch(error=>{
-      console.log(error);
-    });
+    this.addressService.getAddress().then(Response=>{
+
+    }).catch()
+    {
+      
+    }
+   
   }
 }
 
