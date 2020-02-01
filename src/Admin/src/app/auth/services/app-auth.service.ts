@@ -22,7 +22,6 @@ export class AppAuthService {
 
   login(user) {
     const url = `${this.appConfig.middlewareUrl}/auth/login?email=${user['email']}&password=${user['password']}&userType=${user['userType']}`;
-    // const url = `${this.appConfig.middlewareUrl}/auth/login`;
     return this.http.post(url, {}).toPromise();
   }
 
@@ -30,7 +29,6 @@ export class AppAuthService {
     this.appStateService.isLoggedIn.next(false);
     this.appStateService.userSubject.next(null);
     localStorage.removeItem('userData');
-    // this.router.navigate(['/login']);
     return of(this.router.navigate(['/login']));
 
   }

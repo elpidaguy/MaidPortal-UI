@@ -16,15 +16,10 @@ export class ResetPasswordService {
 
 
     sendMail(email) {
-    // const url = `${this.appConfig.middlewareUrl}/email/sendMail?email=${user['email']}`;
     const url = `${this.appConfig.middlewareUrl}/email/sendMail?email=${email}`;
-    // return this.http.post(url , email ,{headers: new HttpHeaders({
-    //   'Content-Type': 'application/text'
-    // })} ).toPromise();
     return this.http.post(url, email).toPromise();
     }
 
-   // confirmOTP(otp: string) {
     confirmOTP(otp) {
       const url = `${this.appConfig.middlewareUrl}/email/confirmOTP?otp=${otp}`;
       return this.http.post(url , otp).toPromise();

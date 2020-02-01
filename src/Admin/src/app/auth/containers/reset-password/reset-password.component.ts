@@ -17,8 +17,6 @@ export class ResetPasswordComponent implements OnInit {
     email: new FormControl(''),
     newPassword: new FormControl(''),
     passwordConfirm: new FormControl(''),
-    // this need has to be done yet
-    // validator: AppMatchFieldsValidator('password', 'passwordConfirm')
   });
 
   constructor(
@@ -46,7 +44,6 @@ export class ResetPasswordComponent implements OnInit {
     const obj = {
       email: this.resetPasswordForm.get('email').value.toString(),
       newPassword: this.resetPasswordForm.get('newPassword').value.toString(),
-     // passwordConfirm: this.resetPasswordForm.get('passwordConfirm').value,
     };
 
     this.resetPasswordService.resetPassword(obj).then((response) => {
@@ -59,9 +56,6 @@ export class ResetPasswordComponent implements OnInit {
     });
 
 }
-  // control visibility of password mismatch error
   protected passwordMismatchError = (): boolean =>
   false
-    // this.formErrorService.hasPasswordMismatchError(this.resetPasswordForm);
-
 }

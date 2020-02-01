@@ -22,16 +22,8 @@ export class MaidManagementComponent implements OnInit {
      return this.maidList = (res as Maid[]);
   }
 
-  //   onFresh() {
-  //   //const res =   this.maidService.getMaidsList();
-  //   return this.maidList = this.maidService.getMaidsList();
-  // }
-
   async ngOnInit() {
     this.onReload();
-  //   const res = await this.maidService.getMaidsList();
-  //  // console.log(res);
-  //   return this.maidList = (res as Maid[]);
   }
 
   onDeleteMaid(maidList: any) {

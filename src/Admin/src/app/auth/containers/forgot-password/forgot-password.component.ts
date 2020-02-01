@@ -11,8 +11,6 @@ import { AppConfig, applicationConfiguration } from '@app-maidportal/config/app.
 })
 export class ForgotPasswordComponent implements OnInit {
 
- // email: any;
-  // resetEmailForm: FormGroup ;
    resetEmailForm = new FormGroup({
      email: new FormControl('')
    });
@@ -30,11 +28,7 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
    async onSubmit() {
-     // obj : any ;
      const obj = this.resetEmailForm.get('email').value.toString();
-      // this.resetPasswordService.sendMail({
-      //   email: this.resetEmailForm.get('email').value.toString(),
-      // }).then(
      this.resetPasswordService.sendMail(obj).then(
         (response) => {
           this.toasterService.success('OTP is sent', 'Success');
@@ -46,25 +40,5 @@ export class ForgotPasswordComponent implements OnInit {
           this.toasterService.error(error.error.text);
         }
       );
-
-
-
-   // console.log(this.resetEmailForm.value);
-  //   const obj = {
-  //     email : this.resetEmailForm.get('email').value.toString()
-  //   };
-
-  //   this.resetPasswordService.sendMail(obj).then((response) => {
-  //  // this.resetPasswordService.sendMail(this.email).then((response) => {
-  //     this.toasterService.success('', '', {timeOut: 1500});
-  //     this.router.navigateByUrl('/confirm-otp');
-  //   }).catch((error) => {
-  //     console.log(error);
-  //    // this.router.navigateByUrl('/confirm-otp');
-  //     this.toasterService.show('email send failed');
-  //     this.toasterService.error(error.error.text);
-  //   });
   }
-
-
 }

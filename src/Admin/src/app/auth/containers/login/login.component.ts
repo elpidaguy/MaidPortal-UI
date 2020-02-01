@@ -42,42 +42,30 @@ export class LoginComponent implements OnInit {
     }
 
     this.masterService.getUserTypes().then((r) => {
-      // console.log(r);
       this.userTypes = r;
     });
 
   }
 
   onSubmit() {
-    // console.log(this.form.value);
     const obj = {
       email: this.form.get('email').value,
       password: this.form.get('password').value,
       userType: this.form.get('userType').value.toString().toUpperCase(),
     };
 
-    // console.log(obj);
-
     this.authService.login(obj).then((response) => {
-      // TODO: remove redundant code
-      // const userData = localStorage.getItem('userData');
-      // console.log(response);
-      // if (userData) {
-      //   localStorage.setItem('userData', JSON.stringify(response));
       localStorage.setItem('userData', JSON.stringify(response));
       localStorage.setItem('userType', JSON.stringify(obj.userType));
       this.appStateService.userSubject.next(response);
       this.appStateService.isLoggedIn.next(true);
       this.appStateService.userType.next(obj.userType);
       this.toastrService.success('Login Successful!', '', { timeOut: 1000 });
-      // console.log('state is ' + this.appStateService.isLoggedIn.value);
       this.router.navigateByUrl('/home');
     }).catch((error) => {
       console.log(error);
       this.toastrService.error(error.error.text);
     });
-
-    // this.router.navigate(['/home']);
 
   }
 }

@@ -34,7 +34,6 @@ onSubmit() {
     this.router.navigateByUrl('/reset-password');
   }).catch((error) => {
     console.log(error);
-    // this.router.navigateByUrl('/reset-password');
     this.toasterService.show('Password Reset Failed');
     this.toasterService.error(error.error.text);
   });

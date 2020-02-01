@@ -27,7 +27,7 @@ export class MessageBoardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-this.loadData();
+    this.loadData();
   }
 
   loadData(): void {

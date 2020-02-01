@@ -37,7 +37,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.setForm();
     this.masterService.getUserTypes().then((r) => {
-      // console.log(r);
       this.userTypes = r;
     });
   }
@@ -65,7 +64,6 @@ export class RegisterComponent implements OnInit {
         confirmPassword: ['', [Validators.required, Validators.minLength(8)]],
         userType: '',
         gender: ['', Validators.required ],
-        //  buildingName, street, city, state, pin, country,
         buildingName: '',
         street: '',
         city: '',
@@ -83,7 +81,6 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     if (this.form.status === 'INVALID') {
       return this.formErrorService.displayFormErrors(this.form);
-      
     }
     console.log(this.form.value);
     const add = {
@@ -100,8 +97,8 @@ export class RegisterComponent implements OnInit {
       phone: this.form.get('phone').value,
       dateCreated: new Date().getTime(),
       _isActive: true
-    }
-    var cust = {
+    };
+    const cust = {
       firstName: this.form.get('firstName').value,
       lastName: this.form.get('lastName').value,
       email: this.form.get('email').value,
@@ -114,25 +111,21 @@ export class RegisterComponent implements OnInit {
       gender: this.form.get('gender').value,
       _isActive: true,
       address: add
-    }
-
-    //const me = this.form.value as Customer;
-    //cust._isActive = true;
+    };
     this.registerService.register(cust, this.form.get('userType'));
     this.router.navigate(['/login']);
   }
   ngOnDestroy() {
     this.alive = false;
   }
- // control display of error messages
  public hasRequiredError = (controlName: string): boolean =>
- this.formErrorService.hasRequiredError(controlName, this.form);
+ this.formErrorService.hasRequiredError(controlName, this.form)
 public hasEmailError = (): boolean =>
- this.formErrorService.hasInvalidEmailError(this.form.get('Email'));
+ this.formErrorService.hasInvalidEmailError(this.form.get('Email'))
 public hasPatternError = (controlName: string) =>
- this.formErrorService.hasPatternError(controlName, this.form);
+ this.formErrorService.hasPatternError(controlName, this.form)
 public passwordMismatchError = (): boolean =>
- this.formErrorService.hasPasswordMismatchError(this.form);
+ this.formErrorService.hasPasswordMismatchError(this.form)
  public noTextError = (controlName: string): boolean =>
- this.formErrorService.hasRequiredError(controlName, this.form);
+ this.formErrorService.hasRequiredError(controlName, this.form)
 }
