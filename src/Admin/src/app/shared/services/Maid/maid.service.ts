@@ -28,18 +28,22 @@ export class MaidService {
   }
 
   getAllMaids(requestOptions) {
-    if (requestOptions['page'] === undefined)
-    {
+    if ( requestOptions['page'] === undefined) {
       requestOptions['page'] = 1;
     }
 
-    if (requestOptions['pageSize'] === undefined)
-    {
+    if (requestOptions['pageSize'] === undefined) {
       requestOptions['pageSize'] = 10;
     }
     const url = `${this.appConfig.middlewareUrl}/maid/getAllMaids?pageNo=${requestOptions['page']}&pageSize=${requestOptions['pageSize']}`;
     return this.http.get(url);
   }
+
+  updateMaid(maid: Maid) {
+    const url = `${this.appConfig.middlewareUrl}/maid/updateMaid`;
+    return this.http.post(url , maid).toPromise();
+  }
+
   // getAllMaids() {
   //   const listMaids = new Promise((resolve) => {
   //     const maidList = {

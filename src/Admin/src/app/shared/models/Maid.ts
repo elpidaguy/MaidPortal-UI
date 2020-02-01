@@ -25,7 +25,7 @@ export class Maid {
     public dateCreated: Date;
     public maritalStatus: MaritalStatus;
     public gender: Gender;
-    // public Address address;
+    //public Address address;
     // public List<Salary> salaryList; // HELPER METHOD
     // public Subscription subscription;
     // public Feedback feedback;
